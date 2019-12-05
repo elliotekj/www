@@ -41,9 +41,12 @@ exports.createSchemaCustomization = ({ actions, schema }, themeOptions) => {
   const { basePath } = defaults
 
   const slugify = source => {
-    const slug = kebabCase(source.title)
-
-    return `/${basePath}/${slug}`.replace(/\/\/+/g, `/`)
+    if (source.rewriteSlug != undefined) {
+      return `/${basePath}/${source.rewriteSlug}`.replace(/\/\/+/g, `/`)
+    } else {
+      const slug = kebabCase(source.title)
+      return `/${basePath}/blog/${slug}`.replace(/\/\/+/g, `/`)
+    }
   }
 
   createFieldExtension({
@@ -80,13 +83,14 @@ exports.createSchemaCustomization = ({ actions, schema }, themeOptions) => {
       tags: [PostTag]
       banner: File @fileByRelativePath
       description: String
+      rewriteSlug: String
     }
-    
+
     type PostTag {
       name: String
       slug: String
     }
-    
+
     interface Page @nodeInterface {
       id: ID!
       slug: String!
@@ -94,9 +98,10 @@ exports.createSchemaCustomization = ({ actions, schema }, themeOptions) => {
       excerpt(pruneLength: Int = 160): String!
       body: String!
     }
-    
+
     type MdxPost implements Node & Post {
       slug: String! @slugify
+      post: String
       title: String!
       date: Date! @dateformat
       excerpt(pruneLength: Int = 140): String! @mdxpassthrough(fieldName: "excerpt")
@@ -106,8 +111,9 @@ exports.createSchemaCustomization = ({ actions, schema }, themeOptions) => {
       tags: [PostTag]
       banner: File @fileByRelativePath
       description: String
+      rewriteSlug: String
     }
-    
+
     type MdxPage implements Node & Page {
       slug: String!
       title: String!
@@ -152,6 +158,7 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
       tags: modifiedTags,
       banner: node.frontmatter.banner,
       description: node.frontmatter.description,
+      rewriteSlug: node.frontmatter.rewriteSlug,
     }
 
     const mdxPostId = createNodeId(`${node.id} >>> MdxPost`)

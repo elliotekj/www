@@ -18,6 +18,7 @@ type PostProps = {
   data: {
     post: {
       slug: string
+      rewriteSlug: string
       title: string
       date: string
       tags?: {

@@ -7,6 +7,7 @@ export const query = graphql`
   query($slug: String!) {
     post(slug: { eq: $slug }) {
       slug
+      rewriteSlug
       title
       date(formatString: "DD.MM.YYYY")
       tags {
