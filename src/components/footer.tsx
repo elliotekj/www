@@ -4,7 +4,7 @@ import { Flex } from "@theme-ui/components"
 import useSiteMetadata from "../hooks/use-site-metadata"
 
 const Footer = () => {
-  const { siteTitle } = useSiteMetadata()
+  const { siteTitle, externalLinks } = useSiteMetadata()
 
   return (
     <Flex
@@ -23,19 +23,13 @@ const Footer = () => {
       <div>
         &copy; {new Date().getFullYear()} by {siteTitle}. All rights reserved.
       </div>
-      <div>
-        <Styled.a
-          aria-label="Link to the theme's GitHub repository"
-          href="https://github.com/LekoArts/gatsby-themes/tree/master/themes/gatsby-theme-minimal-blog"
-        >
-          Theme
-        </Styled.a>
-        {` `}
-        by
-        {` `}
-        <Styled.a aria-label="Link to the theme author's website" href="https://www.lekoarts.de/en">
-          LekoArts
-        </Styled.a>
+
+      <div sx={{ "a:not(:first-of-type)": { ml: 3 } }}>
+          {externalLinks.map(link => (
+          <Styled.a key={link.url} href={link.url}>
+              {link.name}
+          </Styled.a>
+          ))}
       </div>
     </Flex>
   )
