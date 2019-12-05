@@ -42,8 +42,7 @@ const Bottom = () => {
                 const repoUrl = `https://github.com/elliotekj/${os.name}`
                 return (
                     <Flex sx={{
-                        justifyContent: `space-between`,
-                        alignItems: `center`,
+                        alignItems: [`flex-start`, `flex-start`, `center`],
                         flexDirection: [`column`, `column`, `row`],
                         pb: [3]
                     }}>
@@ -55,7 +54,7 @@ const Bottom = () => {
                             {os.description}
                         </Box>
 
-                        <Box>
+                        <Box sx={{ mt: [2, 2, 0] }}>
                             <GitHubButton
                                 href={repoUrl}
                                 data-icon="octicon-star"
