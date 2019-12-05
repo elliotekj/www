@@ -32,6 +32,7 @@ export default {
     color: `rgb(214, 222, 235)`,
     px: 2,
     py: 1,
+    fontSize: 1,
   },
   ".gatsby-highlight": {
     fontSize: 1,
@@ -72,37 +73,13 @@ export default {
       background: `#f7df1e`,
       color: `black`,
     },
-    'pre[class~="language-jsx"]:before': {
-      content: `"jsx"`,
-      background: `#61dafb`,
-      color: `black`,
-    },
-    'pre[class~="language-ts"]:before': {
-      content: `"ts"`,
-      background: `#61dafb`,
-      color: `black`,
-    },
-    'pre[class~="language-tsx"]:before': {
-      content: `"tsx"`,
-      background: `#61dafb`,
-      color: `black`,
-    },
     'pre[class~="language-html"]:before': {
       content: `"html"`,
       background: `#005a9c`,
     },
-    'pre[class~="language-graphql"]:before': {
-      content: `"GraphQL"`,
-      background: `#E10098`,
-    },
     'pre[class~="language-css"]:before': {
       content: `"css"`,
       background: `#ff9800`,
-      color: `black`,
-    },
-    'pre[class~="language-mdx"]:before': {
-      content: `"mdx"`,
-      background: `#f9ac00`,
       color: `black`,
     },
     'pre[class~="language-text"]:before': {
@@ -114,19 +91,13 @@ export default {
     "pre[class='language-sh']:before": {
       content: `'sh'`,
     },
-    "pre[class='language-bash']:before": {
-      content: `'bash'`,
-    },
-    "pre[class='language-yaml']:before": {
-      content: `'yaml'`,
-      background: `#ffa8df`,
-    },
-    "pre[class='language-markdown']:before": {
-      content: `'md'`,
-    },
     "pre[class='language-json']:before, pre[class='language-json5']:before": {
       content: `'json'`,
       background: `linen`,
+    },
+    "pre[class~='language-vim']:before": {
+      content: `'vim'`,
+      background: `#019833`,
     },
     "pre[class='language-diff']:before": {
       content: `'diff'`,

@@ -4,6 +4,13 @@ import loadable from "@loadable/component"
 import theme from "prism-react-renderer/themes/nightOwl"
 import useSiteMetadata from "../hooks/use-site-metadata"
 import { HighlightInnerProps, Language } from "../types"
+import Prism from 'prism-react-renderer/prism';
+(typeof global !== 'undefined' ? global : window).Prism = Prism;
+
+require('prismjs/components/prism-ruby');
+require('prismjs/components/prism-rust');
+require('prismjs/components/prism-swift');
+require('prismjs/components/prism-vim');
 
 type CodeProps = {
   codeString: string
