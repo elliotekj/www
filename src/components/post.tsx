@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import { Heading } from "@theme-ui/components"
+import { Heading, Flex, Button, Link } from "@theme-ui/components"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import React from "react"
 import Layout from "./layout"
@@ -70,6 +70,21 @@ const Post = ({ data }: Props) => {
       <section sx={{ my: 5, ".gatsby-resp-image-wrapper": { my: [4, 4, 5], boxShadow: shadow.join(`, `) } }}>
         <MDXRenderer>{post.body}</MDXRenderer>
       </section>
+
+
+      <Flex sx={{ flexDirection: [`column`, `row`, `row`], justifyContent: [`flex-start`, `flex-start`, `center`] }}>
+          <Link href="https://elliotekj.substack.com" sx={{ mx: [0, 2, 2], my: [2, 0, 0] }}>
+            <Button>Subscribe via Newsletter</Button>
+          </Link>
+
+          <Link href="/rss.xml" sx={{ mx: [0, 2, 2], my: [2, 0, 0] }}>
+            <Button sx={{ background: '#f36523' }}>Subscribe via RSS</Button>
+          </Link>
+
+          <Link href="https://dev.to/elliotekj" sx={{ mx: [0, 2, 2], my: [2, 0, 0] }}>
+            <Button sx={{ background: '#000' }}>Follow on Dev.to</Button>
+          </Link>
+      </Flex>
     </Layout>
   )
 }
