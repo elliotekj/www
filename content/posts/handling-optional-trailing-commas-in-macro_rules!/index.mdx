@@ -3,21 +3,20 @@ title: "Handling optional trailing commas in macro_rules!"
 date: 2017-07-03
 rewriteSlug: "/2017/07/03/handling-optional-trailing-commas-macro_rules/"
 category:
-  - Uncategorized
+  - Code
 tags:
-  - Untagged
+  - Rust
 ---
 
 Here’s a nice little trick I discovered whilst dissecting [the `router!` macro](https://docs.rs/router/0.5.1/router/macro.router.html) for [iron-middlefiddle](https://github.com/elliotekj/iron-middlefiddle). You can optionally allow trailing commas in a macro with the following:
 
-```
+```rust
 $(,)*
 ```
-<!-- readmore -->
 
 If you’re unfamiliar with the macro syntax in Rust then here’s how it breaks down:
 
-```
+```rust
 // Start a repetition:
 $(
 // It's a repetition of commas:
@@ -30,7 +29,7 @@ $(
 
 And here’s how it looks in action:
 
-```
+```rust
 macro_rules! router {
     (
         // Start a repetition:

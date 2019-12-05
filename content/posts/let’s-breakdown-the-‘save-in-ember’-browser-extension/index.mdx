@@ -3,9 +3,9 @@ title: "Let’s breakdown the ‘Save in Ember’ browser extension"
 date: 2015-03-19
 rewriteSlug: "/2015/03/19/lets-breakdown-the-save-in-ember-browser-extension/"
 category:
-  - Uncategorized
+  - Code
 tags:
-  - Untagged
+  - Browser Extensions
 ---
 
 I’ve written this as an accompaniment to the _Save in Ember_ Chrome extension I’ve just [put up on Github](https://github.com/ElliotEKJ/save-in-ember).
@@ -14,7 +14,7 @@ I’ll walk through the basics of Chrome extensions then show you the bits and b
 
 It’s functionality is fairly straight forward: when you’re on `https://dribbble.com`, it’ll add a button in the likes panel that — when clicked — will send the shot straight to your [Ember](http://realmacsoftware.com/ember) library. This is made possible by one of Ember’s URL schemes: `emberapp:///import?url={{URL}}`.
 
-![Before and After of the Dribbble UI](https://elliotekj.com/wp-content/uploads/2015/03/save-in-ember-preview.png)
+![Before and After of the Dribbble UI](./save-in-ember-preview.png)
 
 You’ll still find parts of this post informative, even if you don’t have a copy of Ember. Should you want to try it out however, there’s a 14 day [free trial](http://realmacsoftware.com/ember#download) of Ember available on our site.
 
@@ -54,7 +54,7 @@ Now for the good stuff. Let’s go through each of these files and see what’s 
 
 ### manifest.json
 
-```
+```json
 {
   "name": "Save in Ember",
   "version": "1.0",
@@ -88,7 +88,7 @@ _Note: `name`, `version`, and `manifest_version` are the only required parameter
 
 ### inject.css
 
-```
+```css
 .meta-ember {
   background-image: url('chrome-extension:// __MSG_@@extension_id__ /img/icon_ember.png');
   background-position: 12px 9px !important;
@@ -122,7 +122,7 @@ Where this differs from the CSS you’re used to is in the `background-image` pa
 
 ### inject.js
 
-```
+```js
 chrome.extension.sendMessage({}, function(response)
 {
   var readyStateCheckInterval = setInterval(function()

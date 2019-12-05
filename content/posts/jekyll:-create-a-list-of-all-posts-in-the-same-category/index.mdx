@@ -3,9 +3,9 @@ title: "Jekyll: Create a list of all posts in the same category"
 date: 2016-12-05
 rewriteSlug: "/2016/12/05/jekyll-create-a-list-of-all-posts-in-the-same-category/"
 category:
-  - Uncategorized
+  - Code
 tags:
-  - Untagged
+  - Jekyll
 ---
 
 Let’s take a look at how to create a list of all of the posts in the same category as the one currently being viewed, bearing in mind three requirements:
@@ -13,7 +13,6 @@ Let’s take a look at how to create a list of all of the posts in the same cate
 1. If the post has more than one category, we want to create a list for each category.
 2. We don’t want to show the list if there is only one post in the category (the one being viewed).
 3. We don’t want to include the post who’s page is currently being viewed within the list.
-<!-- readmore -->
 
 I’m using categories for this example as my site uses categories rather than tags for grouping posts. Replacing `post.categories` with `post.tags` in the for loop will work if you’re site uses tags however.
 

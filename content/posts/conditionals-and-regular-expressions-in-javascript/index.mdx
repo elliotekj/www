@@ -3,16 +3,16 @@ title: "Conditionals and regular expressions in Javascript"
 date: 2016-12-19
 rewriteSlug: "/2016/12/19/conditionals-and-regular-expressions-in-javascript/"
 category:
-  - Uncategorized
+  - Code
 tags:
-  - Untagged
+  - Javascript
+  - Regex
 ---
 
 Regular expressions (regexes) are, at first, baffling to look at. What they lack in initial digestibility however, they make up for in power.
 
 Before going any further with this post, let’s take a quick look at the structure of a regular expression in case you haven’t used one before.
 
-<!-- readmore -->
 ## Regular expression structure
 
 Regular expressions are comprised of two parts, the pattern to match and the search flags, separated by slashes like so:
@@ -37,7 +37,7 @@ In my experience, regexes are most often used in Javascript for replacing or rem
 
 Let’s write a function for validating whether or not a passed string is an integer. [insert obligatory note about validating server-side, not just client-side here]
 
-```
+```js
 const isInteger = (str) => {
   const integerRegex = /^(\d|\-)\d*$/
   return integerRegex.test(str)
@@ -46,7 +46,7 @@ const isInteger = (str) => {
 
 You’ll notice that the above regex doesn’t have any flags. None are needed as it’s specifically searching for a pattern from the beginning of the line (`^`) to the end of the line (`$`) and numbers of course don’t have cases. Now that we have that validator, let’s put it to use. Say we have a quantity input, let’s test it’s value:
 
-```
+```js
 const inputVal = document.querySelector('#quantity').value
 
 if (isInteger(inputVal)) {
@@ -58,7 +58,7 @@ if (isInteger(inputVal)) {
 
 Here’s another example for validating a colour hex:
 
-```
+```js
 const isHexColor = (str) => {
   const hexColorRegex = /^#?([0-9A-F]{3}|[0-9A-F]{6})$/i
   return hexColorRegex.test(str)

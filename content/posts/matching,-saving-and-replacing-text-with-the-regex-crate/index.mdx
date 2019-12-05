@@ -3,9 +3,10 @@ title: "Matching, saving and replacing text with the regex crate"
 date: 2017-03-10
 rewriteSlug: "/2017/03/10/matching-saving-and-replacing-text-with-the-regex-crate/"
 category:
-  - Uncategorized
+  - Code
 tags:
-  - Untagged
+  - Rust
+  - Regex
 ---
 
 Work continued on [flyingV](https://github.com/elliotekj/flyingV), one of my side-projects, last week. An interesting challenge I came up against was to find all of the matches to a particular regex across multiple files. For each match, I needed to save a specific portion of it then replace a specific portion of it with a new string.
@@ -17,11 +18,10 @@ To business then. The pattern I was matching against was any [tera](https://gith
 ```
 {% for page in "20*/**/*" %}
 ```
-<!-- readmore -->
 
 My original regex looked something like this:
 
-```
+```rust
 lazy_static! {
     pub static ref GLOB_FOR_LOOP_REGEX: Regex = Regex::new(r#"\{%\sfor\s\w*\sin\s"[^\s]*"\s%}"#).unwrap();
 }
@@ -55,7 +55,7 @@ For example, we can update the above pattern to capture whatever is in-between t
 
 We can then access them like this:
 
-```
+```rust
 lazy_static! {
     pub static ref GLOB_FOR_LOOP_REGEX: Regex = Regex::new(r#"\{%\sfor\s\w*\sin\s"([^\s]*)"\s%}"#).unwrap();
 }
@@ -85,7 +85,7 @@ With those captures in place, we can rebuild the loop, replacing what needs to b
 
 This is the function I ended up with in flyingV:
 
-```
+```rust
 lazy_static! {
     pub static ref GLOB_FOR_LOOP_REGEX: Regex = Regex::new(r#"(\{%\sfor\s\w*\sin)\s"([^\s]*)"\s(%})"#).unwrap();
 }

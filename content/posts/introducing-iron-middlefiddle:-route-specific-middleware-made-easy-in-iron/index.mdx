@@ -3,17 +3,16 @@ title: "Introducing iron-middlefiddle: Route specific middleware made easy in Ir
 date: 2017-07-01
 rewriteSlug: "/2017/07/01/introducing-iron-middlefiddle-route-specific-middleware-made-easy-iron/"
 category:
-  - Uncategorized
+  - Code
 tags:
-  - Untagged
+  - Rust
 ---
 
 Route specific middleware is a fairly common need in web apps. As soon as you introduce something like authentication into the mix, you’ll probably want a way to apply middleware to routes you only want users to be able to access if they’re logged in.
 
 As things stand, route specific middleware in Iron is a repetitive and messy business, which is where `iron_middlefiddle` comes in. It provides a macro which turns the tricky into the trivial, allowing you to add middleware to any number of routes within a [`Router`](https://docs.rs/router/0.5.1/router/struct.Router.html) easily.
 
-<!-- readmore -->
-```
+```rust
 let mut frontend_router = Router::new();
 
 // Add some `frontend_router` routes and the middleware they should use:

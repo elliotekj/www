@@ -3,9 +3,9 @@ title: "Improving webfont performance with FontFaceObserver and sessionStorage"
 date: 2017-01-11
 rewriteSlug: "/2017/01/11/improving-webfont-performance-with-fontfaceobserver-and-sessionstorage/"
 category:
-  - Uncategorized
+  - Code
 tags:
-  - Untagged
+  - Typography
 ---
 
 I spent some time trying to optimise webfont loading on this site yesterday. The current best-practice for most websites leverages [FontFaceObserver](https://github.com/bramstein/fontfaceobserver) and [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage).
@@ -14,8 +14,7 @@ FontFaceObserver is a fairly small Javascript library made by Bram Stein that wi
 
 Let’s start by adding the necessary `@font-face` syntax to our CSS. This site uses [Domine](https://fonts.google.com/specimen/Domine), which I self-host. FontFaceObserver is compatible with any webfont service though.
 
-<!-- readmore -->
-```
+```css
 @font-face {
   font-family: 'Domine';
   font-style: normal;
@@ -39,7 +38,7 @@ Let’s start by adding the necessary `@font-face` syntax to our CSS. This site 
 
 Next, we’ll break out our final font stack from our first-paint font stack. As things stand at the moment, your webfont is probably included as the first item in your `body`‘s `font-family`, like so:
 
-```
+```css
 body {
   font-family: 'Domine', Georgia, "Times New Roman", Times, serif;
 }
@@ -47,7 +46,7 @@ body {
 
 We need to change that as we’ll only be applying the webfont via a class once it has finished loading. This prevents a flash of invisible text.
 
-```
+```scss
 $base-font-family: Georgia, "Times New Roman", Times, serif;
 
 body {
@@ -63,7 +62,7 @@ Time to switch over to our JS. First you’ll need to download FontFaceObserver.
 
 We’ll start by creating a new `FontFaceObserver` for each webfont we’re loading.
 
-```
+```js
 const domineRegular = new FontFaceObserver('Domine', {
   weight: 400
 })
@@ -75,7 +74,7 @@ const domineBold = new FontFaceObserver('Domine', {
 
 Once the fonts have finished loading, we want to apply the `.fonts-loaded` class to our `html` element so they can be put to use. Underneath the above, add the following:
 
-```
+```js
 Promise.all([domineRegular.load(), domineBold.load()]).then(function () {
   document.documentElement.classList.add('fonts-loaded')
 })
@@ -83,7 +82,7 @@ Promise.all([domineRegular.load(), domineBold.load()]).then(function () {
 
 Excellent. Time to add `sessionStorage` to the mix. Start by wrapping the above in an `if` statement like so.
 
-```
+```js
 if (sessionStorage.fontsLoaded) {
   document.documentElement.classList.add('fonts-loaded')
 } else {
@@ -96,7 +95,7 @@ if (sessionStorage.fontsLoaded) {
 
 You’ll notice a few changes in the snippet above. Firstly, we’re setting `sessionStorage.fontsLoaded` to `true` once the `Promise` has resolved. Secondly, we’re leveraging that boolean to avoid running the `Promise` if the fonts have already been loaded. The last thing to do is to `catch` a failed attempt at loading the webfonts. Change line 7 in the above snippet to the following.
 
-```
+```js
 }).catch(function () {
   sessionStorage.fontsLoaded = false
 })
@@ -110,9 +109,7 @@ With this approach, we show the text with the fallback fonts straight away, then
 
 Here’s what this should all look like once put together:
 
-```
-// typography.scss
-
+```scss:title=typography.scss
 @font-face {
   font-family: 'Domine';
   font-style: normal;
@@ -142,9 +139,9 @@ body {
 .fonts-loaded body {
   font-family: 'Domine', $base-font-family;
 }
+```
 
-// typography.js
-
+```js:title=typography.js
 (() => {
   // Promise polyfill
   // ...

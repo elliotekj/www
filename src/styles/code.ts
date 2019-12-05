@@ -99,6 +99,22 @@ export default {
       content: `'vim'`,
       background: `#019833`,
     },
+    "pre[class~='language-rust']:before": {
+      content: `'rust'`,
+      background: `#C69F7C`,
+    },
+    "pre[class~='language-ruby']:before": {
+      content: `'ruby'`,
+      background: `#CD342D`,
+    },
+    "pre[class~='language-scss']:before": {
+      content: `'scss'`,
+      background: `#CD6899`,
+    },
+    "pre[class~='language-json']:before": {
+      content: `'json'`,
+      background: `#3A9E28`,
+    },
     "pre[class='language-diff']:before": {
       content: `'diff'`,
       background: `#e6ffed`,

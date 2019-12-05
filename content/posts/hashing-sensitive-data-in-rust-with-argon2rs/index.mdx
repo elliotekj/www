@@ -3,16 +3,14 @@ title: "Hashing sensitive data in Rust with argon2rs"
 date: 2017-04-02
 rewriteSlug: "/2017/04/02/hashing-sensitive-data-in-rust-with-argon2rs/"
 category:
-  - Uncategorized
+  - Code
 tags:
-  - Untagged
+  - Rust
 ---
 
 Argon2 is the password hashing algorithm that won the [Password Hashing Competition](https://password-hashing.net) in 2015. It is comprised of 2 main versions: Argon2i, which is optimised to resist [side-channel attacks](https://en.wikipedia.org/wiki/Side-channel_attack); and the version we’re interested in, Argon2d, which is optimised to resist GPU cracking attacks.
 
 The [argon2rs](https://crates.io/crates/argon2rs) crate is a pure rust implementation of Argon2, which supports both of the above versions.
-
-<!-- readmore -->
 
 We’ll be using argon2rs’ default values for the number of passes etc., so the only things we need to supply are the data to hash and salt. If you’re not familiar, “salt” refers to random data used in one-way hashing functions — i.e. hashing functions that are too expensive to invert to be practical for attackers — to defend against [dictionary attacks](https://en.wikipedia.org/wiki/Dictionary_attack) and pre-computed [rainbow table](https://en.wikipedia.org/wiki/Rainbow_table) attacks.
 
@@ -32,9 +30,7 @@ Enough theory then, let’s take a look at how to use the argon2rs crate to achi
 
 We’re going to have 3 dependencies: argon2rs, of course, for hashing; [dotenv](https://crates.io/crates/dotenv) for storing a local salt; and [rand](https://crates.io/crates/rand) for generating random salt. Add them to your `Cargo.toml`:
 
-```
-// ~/myproject/src/Cargo.toml
-
+```rust:title=~/myproject/src/Cargo.toml
 [dependencies]
 argon2rs = "0.2"
 dotenv = "0.10"
@@ -43,17 +39,13 @@ rand = "0.3"
 
 Let’s start by setting up a local salt. At the highest level in your project’s directory, create a file named `.env` and add a `LOCAL_SALT` environment variable. Make sure you add `.env` to your `.gitignore` too.
 
-```
-// ~/myproject/.env
-
+```:title=~/myproject/.env
 LOCAL_SALT=TWQA38DcB6Gyt4l7CG5W£lkj234WKKXP
 ```
 
 With that done, we can setup the dotenv crate in `main.rs`:
 
-```
-// ~/myproject/src/main.rs
-
+```rust:title=~/myproject/src/main.rs
 extern crate dotenv;
 
 use dotenv::dotenv;
@@ -74,9 +66,7 @@ fn hash_data() {
 
 Next, we’ll setup random salt generation using the rand crate:
 
-```
-// ~/myproject/src/main.rs
-
+```rust:title=~/myproject/src/main.rs
 extern crate dotenv;
 extern crate rand;
 
@@ -97,9 +87,7 @@ fn hash_data() {
 
 Now we can configure argon2rs to hash the data:
 
-```
-// ~/myproject/src/main.rs
-
+```rust:title=~/myproject/src/main.rs
 extern crate argon2rs;
 extern crate dotenv;
 extern crate rand;
@@ -139,9 +127,7 @@ At this point, we’ve finished preparing the data for the database. I’m just 
 
 Now to add a way to compare user-inputted data to the hash in the database:
 
-```
-// ~/myproject/src/main.rs
-
+```rust:title=~/myproject/src/main.rs
 extern crate argon2rs;
 extern crate dotenv;
 extern crate rand;

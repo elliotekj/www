@@ -3,16 +3,16 @@ title: "Deleting the contents of a directory in Rust"
 date: 2017-03-20
 rewriteSlug: "/2017/03/20/deleting-the-contents-of-a-directory-in-rust/"
 category:
-  - Uncategorized
+  - Code
 tags:
-  - Untagged
+  - Rust
 ---
 
 There are various ways to delete the contents of a directory. You could, for example, delete the directory itself with [`fs::remove_dir_all`](https://doc.rust-lang.org/std/fs/fn.remove_dir_all.html) and then create a new directory with the same name.
 
 A more refined solution, which will go through the contents of a directory and delete each child without actually destroying and recreating the parent, looks like this:
 
-```
+```rust
 use std::fs::{self, ReadDir};
 use std::io::Error;
 

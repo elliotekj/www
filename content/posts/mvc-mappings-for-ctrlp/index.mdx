@@ -3,16 +3,16 @@ title: "MVC mappings for CtrlP"
 date: 2017-04-12
 rewriteSlug: "/2017/04/12/mvc-mappings-for-ctrlp/"
 category:
-  - Uncategorized
+  - Code
 tags:
-  - Untagged
+  - Vim
 ---
 
 It’s been a while since I last shared anything Vim related.
 
 My favourite somewhat-recent addition to my `.vimrc` is a set of [CtrlP](https://github.com/ctrlpvim/ctrlp.vim) mappings for searching directly within an apps model, view, controller, or helper directories.
 
-```
+```vim
 nnoremap <leader>c :CtrlP src/controllers<cr>
 nnoremap <leader>h :CtrlP src/helpers<cr>
 nnoremap <leader>m :CtrlP src/models<cr>

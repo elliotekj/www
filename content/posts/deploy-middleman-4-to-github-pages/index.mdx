@@ -3,14 +3,12 @@ title: "Deploy Middleman 4 to GitHub Pages"
 date: 2016-10-01
 rewriteSlug: "/2016/10/01/deploy-middleman-4-to-github-pages/"
 category:
-  - Uncategorized
+  - Code
 tags:
-  - Untagged
+  - Middleman
 ---
 
 I moved my blog from Jekyll over to Middleman a couple of days ago, mainly because whilst early versions of Jekyll always worked well for me, it has become slow at recompiling after a change making customisation a less enjoyable process. Speaking of customisation, I’m not a fan of the gem-based system they moved to for themes in 3.0 either. Thus, enter Middleman.
-
-<!-- readmore -->
 
 One of the great benefits of Jekyll is hosting your site on GitHub Pages. Generously though, GitHub will also host and serve static files in a Pages repo (username.github.io) so we just need to push our compiled Middleman site into ours. Where this differs from Jekyll is that GitHub will actually compile your Jekyll site for you, removing the extra step. There is, however, a Middleman plugin that will make this an easy process. Let’s set it up.
 
@@ -18,13 +16,13 @@ We’ll need two separate repos. The first, in my case [`elliotekj.com`](https:/
 
 I mention Middleman 4 specifically in the title because at the time of writing, the release version of [middleman-deploy](https://github.com/middleman-contrib/middleman-deploy) isn’t compatible with version 4 so we need to use the alpha version of the gem. Despite being in alpha, it has worked perfectly for me. Add it to your `Gemfile` then `$ bundle install`.
 
-```
+```ruby
 gem 'middleman-deploy', '~> 2.0.0.pre.alpha'
 ```
 
 Now to configure it. Open your `config.rb` and add the following, replacing “username” on line 4 with your GitHub username.
 
-```
+```ruby
 # Middleman-deploy configuration
 activate :deploy do |deploy|
   deploy.deploy_method = :git

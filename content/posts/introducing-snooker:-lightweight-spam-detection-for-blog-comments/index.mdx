@@ -3,16 +3,14 @@ title: "Introducing Snooker: Lightweight spam detection for blog comments"
 date: 2017-08-15
 rewriteSlug: "/2017/08/15/introducing-snooker-lightweight-spam-detection-for-blog-comments"
 category:
-  - Uncategorized
+  - Code
 tags:
-  - Untagged
+  - Snooker
 ---
 
 If you’ve been following the [Magnificent Walrus](https://elliotekj.com/2017/08/12/initial-thoughts-on-baked-commenting/) [dev logs](https://elliotekj.com/2017/08/13/baked-commenting-dev-log-n1/), you’ll have read that I opted for the “[Snook Algorithm](https://snook.ca/archives/other/effective_blog_comment_spam_blocker)” instead of adding an external dependency in the form of [Akismet](https://akismet.com).
 
 I’ve dubbed it the “Snook Algorithm” because as far as I know, it doesn’t have an official name. It’s the points-based system Jonathan uses (or perhaps _used_ at this point) for filtering spam on [snook.ca](https://snook.ca/).
-
-<!-- readmore -->
 
 Each comment starts with 0 points. Points are then awarded and deducted based on a variety of rules. If a comments final score is greater than or equal to 1, the comment is considered valid. If the comments final score is 0 then it’s considered to be worth moderating. If the comments final score is below 0 then it’s considered to be spam.
 
@@ -34,7 +32,7 @@ Snooker gives the example comment below a score of **-10** based off of the foll
 - No consonant groups were found: **+0 points** (unchanged)
 - No data was provided about the comments previously submitted with this email address: **+0 points** (unchanged)
 
-```
+```rust
 use snooker::{Comment, Snooker, Status};
 
 let comment = Comment {

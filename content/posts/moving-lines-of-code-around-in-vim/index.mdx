@@ -3,16 +3,14 @@ title: "Moving lines of code around in Vim"
 date: 2017-01-19
 rewriteSlug: "/2017/01/19/moving-lines-of-code-around-in-vim/"
 category:
-  - Uncategorized
+  - Code
 tags:
-  - Untagged
+  - Vim
 ---
 
-![GIF of the mapping in action](https://elliotekj.com/wp-content/uploads/2017/04/moving-lines-in-vim.gif)
+![GIF of the mapping in action](./moving-lines-in-vim.gif)
 
 I recently added a handy little set of mappings to my `.vimrc` for moving code around.
-
-<!-- readmore -->
 
 They’ll take either the line you’re on (in normal mode) or the lines you’ve selected (in visual mode) and move them up or down 1 line.
 
@@ -20,7 +18,7 @@ The nice part is that, as you can see above, when you move lines into or out of 
 
 Here are the mappings you’ll need:
 
-```
+```vim
 " Move lines around easily
 nnoremap <leader>k :m-2<cr>==
 nnoremap <leader>j :m+<cr>==

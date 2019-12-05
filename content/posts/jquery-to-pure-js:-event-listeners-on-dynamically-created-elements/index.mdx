@@ -3,14 +3,14 @@ title: "jQuery to pure JS: Event listeners on dynamically created elements"
 date: 2016-11-05
 rewriteSlug: "/2016/11/05/jquery-to-pure-js-event-listeners-on-dynamically-created-elements/"
 category:
-  - Uncategorized
+  - Code
 tags:
-  - Untagged
+  - Javascript
 ---
 
 The following HTML will serve as the example markup for this post. It’s an example of how you might structure a feed that receives updates without the page reloading (dynamically created content). Our goal is to add a click event listener to each new `.feed-item` that is dynamically created.
 
-```
+```html
 <div class="feed">
   <div class="feed-item" data-id="3">
     <div class="item-content">
@@ -31,7 +31,7 @@ The following HTML will serve as the example markup for this post. It’s an exa
   </div>
 </div>
 ```
-<!-- readmore -->
+
 ### Event delegation
 
 Event delegation is the process of handling events at a higher level in the DOM that where they were first triggered, thanks to behaviour known as bubbling. When an element on the page is, for example clicked, then a click event is fired on that element but it doesn’t stop there. The click event “bubbles up” the DOM tree, triggering the click events on any of the originally clicked element’s parents that are listening for one.
@@ -40,13 +40,13 @@ Event delegation is the process of handling events at a higher level in the DOM 
 
 Using jQuery’s (1.7+) `.on()`, we can attach an event listener to the closest static parent of the element we want to listen for events on. (A parent element that isn’t created or destroyed dynamically.) When the static parent receives the “bubbled-up” click event, we tell it to compare the the dynamic child element’s selector passed into `.on()` with the element where the click originated. If they match, then the event handler is triggered. In short, this:
 
-```
+```js
 $(staticParent).on(eventName, dynamicChildSelector, eventHandler)
 ```
 
 Or, filled in to suit our needs, like this:
 
-```
+```js
 $('.feed').on('click', '.feed-item', function (event) {
   // Do something
 })
@@ -58,7 +58,7 @@ There are multiple ways you can achieve this type of functionality in pure JS, d
 
 The exact equivalent to our above jQuery would again leverage bubbling, a static parent and the dynamic child element’s selector, like so:
 
-```
+```js
 document.querySelector(staticParent).addEventListener(eventName, function (event) {
   if (event.target.classList.contains(dynamicChildSelector)) {
     // Do something
@@ -68,7 +68,7 @@ document.querySelector(staticParent).addEventListener(eventName, function (event
 
 Filled in to suit or needs:
 
-```
+```js
 document.querySelector('.feed').addEventListener('click', function (event) {
   if (event.target.classList.contains('feed-item')) {
     // Do something
@@ -80,14 +80,14 @@ One of the pitfalls you may stumble into with the above approach is that not all
 
 Alternatively, if you’re creating the element you want to listen to with [`document.createElement()`](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement), then as part of the creation you can pass in a value for [`.onclick`](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onclick).
 
-```
+```js
 let newElement = document.createElement('div')
 newElement.onclick = // Do something
 ```
 
 As a last resort, we could add an event listener after the new element has been created and rendered, as demonstrated in the following example. To avoid having to go through all of the previously created elements that match the selector (in our case `.feed-item`), it’s best to have a way to uniquely identify each one. For this example I’m using our `.feed-item`‘s `data-id` value.
 
-```
+```js
 // Add the helper function for creating new event listeners
 
 function createEventListener (id) {

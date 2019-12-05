@@ -3,22 +3,20 @@ title: "How CSS selector specificity is calculated"
 date: 2017-02-25
 rewriteSlug: "/2017/02/25/how-css-selector-specificity-is-calculated/"
 category:
-  - Uncategorized
+  - Code
 tags:
-  - Untagged
+  - CSS
 ---
 
 I spent the end of this week working on Readership’s exporting tools, more specifically the CSS inliner.
 
 To make sure that the correct styles are applied when multiple selectors with a common property match the same element, I needed to calculate the specificity of each individual selector, keeping only the declaration of the one with the highest specificity.
 
-<!-- readmore -->
-
 CSS selectors are awarded a score based on their individual components. The score is of the form `abc` <sup id="fnref-38-1"><a href="#fn-38-1">1</a></sup> where `a` is the number of IDs; `b` is the combined number of classes, attributes, and psuedo-classes; and `c` is the combined number of types and psuedo-elements. The lowest scoring selector is the wildcard (`*`) with a specificity value of 000, and as usual, an inline style will take priority over anything else except an `!important` declaration.
 
 The above is the foundation for calculating the specificity of a selector. You may have spotted that by using this method, there will be times when two selectors carry the same weight. When that happens, CSS’s principle of last-in last-applied should be used:
 
-```
+```css
 /* For <div class="some-class" some-attribute="something"></div> */
 
 .some-class {

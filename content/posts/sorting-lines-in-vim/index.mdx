@@ -3,16 +3,15 @@ title: "Sorting lines in Vim"
 date: 2016-11-14
 rewriteSlug: "/2016/11/14/sorting-lines-in-vim/"
 category:
-  - Uncategorized
+  - Code
 tags:
-  - Untagged
+  - Vim
 ---
 
 Amongst Vim’s many commands, there’s the humble yet powerful `:sort`. As you’d expect, it takes a selection or a range and sorts it. By default, that sort is numerical (``through`9`), then alphabetical (`A`through`Z`followed by`a`through`z`).
 
 All that to say that running a generic `:sort` on the characters to the left in the following example would result in them being reordered to how you see them on the right.
 
-<!-- readmore -->
 ```
 Original Sorted
     a => 2
@@ -35,7 +34,7 @@ Original Sorted
 
 99% of the time, `:sort i` is precisely what I’m after. As it’s functionality I use multiple times a day, I have it remapped. `<leader>s` works well for me.
 
-```
+```vim
 xnoremap <leader>s :sort i<cr>
 ```
 
