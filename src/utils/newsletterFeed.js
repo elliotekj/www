@@ -40,7 +40,7 @@ module.exports = {
         }
       `,
       output: `rss.xml`,
-      title: `Minimal Blog - @lekoarts/gatsby-theme-minimal-blog`,
+      title: `Elliot Jackson: Freelance software designer and developer`,
     },
   ],
 }

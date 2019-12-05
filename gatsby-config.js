@@ -11,7 +11,7 @@ module.exports = {
 		siteDescription: `I'm Elliot Jackson; I build software for fun and profit. Currently I freelance, taking on mainly iOS design and/or development projects. Prior to that I worked at Realmac Software.`,
 		siteLanguage: `en`,
 		siteImage: `/banner.jpg`,
-		author: `@lekoarts_de`,
+		author: `@elliotekj`,
 		externalLinks: [
 		{
 			name: `Hire Me`,
@@ -93,16 +93,16 @@ module.exports = {
 	{
 		resolve: `gatsby-plugin-google-analytics`,
 		options: {
-			trackingId: "null",
+			trackingId: "UA-49510385-1",
 		},
 	},
 	`gatsby-plugin-sitemap`,
 	{
 		resolve: `gatsby-plugin-manifest`,
 		options: {
-			name: `minimal-blog - @lekoarts/gatsby-theme-minimal-blog`,
-			short_name: `minimal-blog`,
-			description: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and code highlighting.`,
+			name: `Elliot Jackson: Freelance software designer and developer`,
+			short_name: `Elliot Jackson`,
+			description: `I'm Elliot Jackson; I build software for fun and profit. Currently I freelance, taking on mainly iOS design and/or development projects. Prior to that I worked at Realmac Software.`,
 			start_url: `/`,
 			background_color: `#fff`,
 			theme_color: `#6B46C1`,
