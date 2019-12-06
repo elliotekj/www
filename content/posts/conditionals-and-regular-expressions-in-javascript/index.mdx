@@ -13,7 +13,7 @@ Regular expressions (regexes) are, at first, baffling to look at. What they lack
 
 Before going any further with this post, let’s take a quick look at the structure of a regular expression in case you haven’t used one before.
 
-## Regular expression structure
+### Regular expression structure
 
 Regular expressions are comprised of two parts, the pattern to match and the search flags, separated by slashes like so:
 
@@ -31,7 +31,7 @@ A working example of the above could look something like this:
 
 The above is all well and good, but regexes really come into their own once you start introducing some of the language’s syntax into your patterns. Whilst that is also when they become trickier to read, I’d encourage you to delve deeper into the syntax as once grasped it’s a huge timesaver.
 
-## Their use in Javascript
+### Their use in Javascript
 
 In my experience, regexes are most often used in Javascript for replacing or removing text from a string. That’s handy, but my favourite use for them is in partnership with the [`.test()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test) method from Javascript’s regular expression object. It will return `true` or `false` depending on whether or not a match was found.
 

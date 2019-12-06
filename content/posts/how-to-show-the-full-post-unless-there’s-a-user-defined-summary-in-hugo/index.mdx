@@ -14,7 +14,7 @@ On the home page of this site I like to show the full contents of a post by defa
 
 Accomplishing this in Hugo is a little more involved [than it is in Jekyll](https://elliotekj.com/2016/12/04/jekyll-display-the-full-post-unless-a-custom-excerpt-is-specified/), and as far as I can tell nobody has documented how to do it. Let’s fix that.
 
-## Configuring your content files
+### Configuring your content files
 
 You need to start by choosing the summary separator you want to use in your content files. The only one that’s off limit is `<!-​-more-->` because it’s the one Hugo’s default summary functionality uses, and as such, it doesn’t get passed through in the `.Content` variable.
 
@@ -34,7 +34,7 @@ This is the first paragraph in the post. It will be shown on the home page as it
 On the homepage, this content won't be shown as it's after the summary separator.
 ```
 
-## Configuring your layout files
+### Configuring your layout files
 
 Open up the layout file you want to implement this functionality in. In my case, that was `index.html`.
 
@@ -65,7 +65,7 @@ Let’s walk though that snippet:
 
 5. If the summary isn’t the same as `.Content`, then line 7 tells Hugo to render our summary with a “read more” link instead.
 
-## Wrapping up
+### Wrapping up
 
 There we have it. You can see this in action on [the home page](https://elliotekj.com) of this site.
 

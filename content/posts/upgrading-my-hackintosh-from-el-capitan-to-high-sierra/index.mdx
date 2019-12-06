@@ -14,7 +14,7 @@ The time came yesterday to upgrade the OS from El Capitan to High Sierra though.
 
 Hackintosh OS upgrades are renowned for being finicky: it’s one of the main criticisms I hear against them. Granted it’s not quite as simple as downloading and running the installer as you would with a regular Mac, but the tools and documentation provided by the Hackintosh community have never been better. I got it done in a couple of hours with most of that time spent either waiting for High Sierra to download or waiting for High Sierra to install.
 
-## Specs
+### Specs
 
 Here’s a quick reminder of the specs I’m running:
 
@@ -28,13 +28,13 @@ Here’s a quick reminder of the specs I’m running:
 - **Case:** BitFenix Phenom Micro-ATX (Black)
 - **Wifi adapter:** TP-Link PCI Express Adapter
 
-## Downloading the High Sierra installer
+### Downloading the High Sierra installer
 
 Right out of the gate I ran into my first problem: the App Store wasn’t letting me download the High Sierra installer.
 
 The error shown read something along the lines of: “This version of macOS 10.12 cannot be installed on this computer”. This was due the System Definition I set in MultiBeast when I installed El Capitan (“Mac Pro 3,1”). Getting past the error was as simple as loading my old config file into MultiBeast, changing the System Definition (Customize › System Definitions) to “iMac 14,2”, running MultiBeast again, and rebooting.
 
-## Installation
+### Installation
 
 The [documentation on tonymacx86](https://www.tonymacx86.com/threads/update-directly-to-macos-high-sierra.232707/) for upgrading to macOS High Sierra worked perfectly for me. The only things worth mentioning here are:
 
@@ -42,7 +42,7 @@ The [documentation on tonymacx86](https://www.tonymacx86.com/threads/update-dire
 - I updated Clover using the linked Clover package, not MultiBeast.
 - In step 2, the only kext I copied over was `FakeSMC.kext`.
 
-## NVIDIA drivers
+### NVIDIA drivers
 
 Getting the NVIDIA Web Driver to initiate on boot was what took up most of the non-waiting-for-the-computer-to-do-its-thing time. If you’re upgrading your Hackintosh from Sierra to High Sierra, this shouldn’t be as time consuming, as you’ll have already dealt with the fact that `nvda_drv=1` doesn’t work anymore. As I skipped Sierra I didn’t know about that change though and had to spend some time Googling around before finding the solution.
 
@@ -54,7 +54,7 @@ Here are the steps needed to get your NVIDIA driver working properly:
 4. Under “System Parameters”, make sure “Inject Kexts” is set to “Yes” then check the “NVIDIAWeb” option.
 5. Restart your system.
 
-## Conclusion
+### Conclusion
 
 1 day in and so far everything seems to be working perfectly. I’ve had no issues with Wi-Fi, graphics, or anything else for that matter. No unexplained crashes (touch wood — as far as I can recall, the machine has never actually crashed). No software or hardware issues either.
 

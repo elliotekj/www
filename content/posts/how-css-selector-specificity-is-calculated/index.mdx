@@ -30,7 +30,7 @@ The above is the foundation for calculating the specificity of a selector. You m
 
 The `background-color` of the above `div` will be green. The selectors carry an equal specificity value so the last-in selector, `[some-attribute]`, takes precedence.
 
-## Examples
+### Examples
 
 Selector specificity is something much easier shown than explained, so lets take a look at some examples.
 
@@ -66,7 +66,7 @@ Selector specificity is something much easier shown than explained, so lets take
 
 `#some-id ul:nth-child(odd) [some-attribute] a.some-class::first-letter` is a selector that has 1 ID(s), 3 class(es) / attribute(s) / psuedo-class(es), and 3 type(s) / psuedo-element(s), giving it a specificity score of 133.
 
-## Two words of warning
+### Two words of warning
 
 Firstly: for this method to work, it’s imperative that the individual counts be concatenated together rather than added together. 1 ID and 1 class yield a score of 110, not 2.
 

@@ -20,7 +20,7 @@ The problem is that you’ve already got the old version of the app running so t
 
 This post will focus on finding one such available port in Rust.
 
-## Basics
+### Basics
 
 The interface to the code we’re about to write will be the `get_available_port` method. Using it in your code will look something like this.
 
@@ -32,7 +32,7 @@ fn main() {
 }
 ```
 
-## Finding the port
+### Finding the port
 
 We can now move on to defining `get_available_port`. As per [Rust’s standard library](https://doc.rust-lang.org/std/net/enum.SocketAddr.html#method.port), ports are `u16`s. We’ll wrap that in an `Option` in case the method fails to find an available port.
 
@@ -66,7 +66,7 @@ fn port_is_available(port: u16) -> bool {
 }
 ```
 
-## Summary
+### Summary
 
 That’s really all there is to it. Your final code should look something like this:
 
@@ -92,7 +92,7 @@ fn port_is_available(port: u16) -> bool {
 }
 ```
 
-## Testing
+### Testing
 
 All that’s left to do is to make sure this actually works. If you do a `cargo
 run`, you should see “port `8000` is available”, assuming you don’t already have something running on `127.0.0.1:8000`.

@@ -26,7 +26,7 @@ As we can see above, the code for setting a MIME type is generic and doesn’t n
 
 > `AfterMiddleware` receive both a `Request` and a `Response` and are responsible for doing any response post-processing.
 
-## Writing the middleware
+### Writing the middleware
 
 As the docs said, `AfterMiddleware` receives both the `Request` and the `Response`. We don’t need to do anything to the `Request` so we’ll just mark it as unused with `_`. We do however want to modify the `Response` which can be done very straightforwardly with [`.set_mut()`](https://docs.rs/iron/0.5.1/iron/trait.Set.html#method.set_mut). Pieced together, we end up with this:
 
@@ -45,7 +45,7 @@ impl AfterMiddleware for MimeJson {
 }
 ```
 
-## Using the middleware
+### Using the middleware
 
 Not that we have our middleware in place, we need to use it. The following snippet, for example, uses it to set the MIME type of every handler in the `api_v1_router` router:
 
