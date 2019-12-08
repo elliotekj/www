@@ -61,12 +61,12 @@ const Post = ({ data }: Props) => {
         <time>{post.date}</time>
         {post.tags && (
           <React.Fragment>
-            {` — `}
+            {` • Tagged `}
             <ItemTags tags={post.tags} />
+            {` in `}
+            {post.category}
           </React.Fragment>
         )}
-        {` — `}
-        <span>{post.timeToRead} min read</span>
       </p>
       <section sx={{ my: 5, ".gatsby-resp-image-wrapper": { my: [4, 4, 5], boxShadow: shadow.join(`, `) } }}>
         <MDXRenderer>{post.body}</MDXRenderer>

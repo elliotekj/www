@@ -10,6 +10,7 @@ type BlogListItemProps = {
     slug: string
     title: string
     date: string
+    category: string
     tags?: {
       name: string
       slug: string
@@ -27,8 +28,10 @@ const BlogListItem = ({ post, showTags = true }: BlogListItemProps) => (
       <time>{post.date}</time>
       {post.tags && showTags && (
         <React.Fragment>
-          {` — `}
+          {` • Tagged `}
           <ItemTags tags={post.tags} />
+          {` in `}
+          {post.category}
         </React.Fragment>
       )}
     </p>
