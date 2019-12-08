@@ -66,6 +66,9 @@ module.exports = {
 					linkImagesToOriginal: false,
 				},
 			},
+			{
+				resolve: `gatsby-remark-copy-linked-files`,
+			},
 			],
 			plugins: [
 			{
@@ -75,6 +78,9 @@ module.exports = {
 					quality: 90,
 					linkImagesToOriginal: false,
 				},
+			},
+			{
+				resolve: `gatsby-remark-copy-linked-files`,
 			},
 			],
 		},
