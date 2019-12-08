@@ -10,7 +10,7 @@ module.exports = {
 		siteUrl: `https://elliotekj.com`,
 		siteDescription: `I'm Elliot Jackson; I build software for fun and profit. Currently I freelance, taking on mainly iOS design and/or development projects. Prior to that I worked at Realmac Software.`,
 		siteLanguage: `en`,
-		siteImage: `/banner.jpg`,
+		siteImage: `/banner.png`,
 		author: `@elliotekj`,
 		externalLinks: [
 		{
