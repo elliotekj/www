@@ -80,6 +80,7 @@ exports.createSchemaCustomization = ({ actions, schema }, themeOptions) => {
       body: String!
       html: String
       timeToRead: Int!
+      category: String!
       tags: [PostTag]
       banner: File @fileByRelativePath
       description: String
@@ -108,6 +109,7 @@ exports.createSchemaCustomization = ({ actions, schema }, themeOptions) => {
       body: String! @mdxpassthrough(fieldName: "body")
       html: String! @mdxpassthrough(fieldName: "html")
       timeToRead: Int! @mdxpassthrough(fieldName: "timeToRead")
+      category: String!
       tags: [PostTag]
       banner: File @fileByRelativePath
       description: String
@@ -155,6 +157,7 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId, createContentDig
     const fieldData = {
       title: node.frontmatter.title,
       date: node.frontmatter.date,
+      category: node.frontmatter.category,
       tags: modifiedTags,
       banner: node.frontmatter.banner,
       description: node.frontmatter.description,

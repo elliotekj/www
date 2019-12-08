@@ -21,6 +21,7 @@ type PostProps = {
       rewriteSlug: string
       title: string
       date: string
+      category: string
       tags?: {
         name: string
         slug: string
