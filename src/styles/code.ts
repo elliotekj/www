@@ -40,7 +40,7 @@ export default {
     fontSize: 1,
     position: `relative`,
     webkitOverflowScrolling: `touch`,
-    bg: `rgb(1, 22, 39)`,
+    bg: `rgb(246, 248, 250)`,
     overflow: `auto`,
     mx: [0, 0, 0, -3],
     ".token-line": {
@@ -78,6 +78,7 @@ export default {
     'pre[class~="language-html"]:before': {
       content: `"html"`,
       background: `#005a9c`,
+      color: `#fff`
     },
     'pre[class~="language-css"]:before': {
       content: `"css"`,
@@ -139,7 +140,9 @@ export default {
     position: `relative`,
   },
   ".code-title": {
-    backgroundColor: tint(`primary`, 0.7),
+    borderWidth: `2px 2px 0 2px`,
+    borderColor: `rgb(246, 248, 250)`,
+    borderStyle: `solid`,
     color: `black`,
     fontSize: 0,
     px: 3,

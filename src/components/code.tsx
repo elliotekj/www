@@ -1,7 +1,7 @@
 /* eslint react/destructuring-assignment: 0 */
 import React from "react"
 import loadable from "@loadable/component"
-import theme from "prism-react-renderer/themes/nightOwl"
+import theme from "prism-react-renderer/themes/github"
 import useSiteMetadata from "../hooks/use-site-metadata"
 import { HighlightInnerProps, Language } from "../types"
 import Prism from 'prism-react-renderer/prism';
