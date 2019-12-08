@@ -47,8 +47,7 @@
     "react-github-btn": "^1.1.1",
     "react-helmet": "^5.2.1",
     "react-live": "^2.2.1",
-    "theme-ui": "^0.2.49",
-    "typeface-ibm-plex-sans": "^0.0.75"
+    "theme-ui": "^0.2.49"
   },
   "keywords": [
     "gatsby",
