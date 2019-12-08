@@ -28,11 +28,13 @@ export default {
     display: `inline-block`,
   },
   "p > code": {
-    bg: `rgb(1, 22, 39)`,
-    color: `rgb(214, 222, 235)`,
-    px: 2,
-    py: 1,
-    fontSize: 1,
+    fontSize: [2, 2, 3],
+  },
+  "ol code": {
+    fontSize: 2,
+  },
+  "ul code": {
+    fontSize: 2,
   },
   ".gatsby-highlight": {
     fontSize: 1,
