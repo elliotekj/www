@@ -39,7 +39,8 @@ const Bottom = () => {
             <Title text="Open Source Projects" />
 
             {openSource.map(os => {
-                const repoUrl = `https://github.com/elliotekj/${os.name}`
+                const repoUrl = `https://github.com/elliotekj/${os.name.replace(/\s+/g, '-')}`
+
                 return (
                     <Flex sx={{
                         alignItems: [`flex-start`, `flex-start`, `center`],
