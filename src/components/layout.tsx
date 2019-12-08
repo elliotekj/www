@@ -30,6 +30,9 @@ const Layout = ({ children, className }: LayoutProps) => (
           transition: `all 0.3s ease-in-out`,
           color: `text`,
         },
+        img: {
+          maxWidth: `100%`
+        }
       })}
     />
     <SEO />
