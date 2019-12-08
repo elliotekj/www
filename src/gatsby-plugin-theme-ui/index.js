@@ -43,7 +43,7 @@ export default {
   useCustomProperties: true,
   colors: {
     ...tailwind.colors,
-    primary: tailwind.colors.purple[7],
+    primary: `#005eff`,
     secondary: `#5f6c80`,
     toggleIcon: tailwind.colors.gray[8],
     heading: tailwind.colors.black,
