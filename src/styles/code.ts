@@ -154,8 +154,8 @@ export default {
     pr: 3,
   },
   ".highlight-line": {
-    backgroundColor: `rgb(2, 55, 81)`,
-    borderLeft: `4px solid rgb(2, 155, 206)`,
+    backgroundColor: `#D7F0D2`,
+    borderLeft: `4px solid #5DCF34`,
     ".line-number-style": {
       width: `calc(3em - 4px)`,
       opacity: 0.5,
