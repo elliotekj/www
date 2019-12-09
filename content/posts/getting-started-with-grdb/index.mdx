@@ -1,0 +1,85 @@
+---
+title: "SQLite and iOS: Getting started with GRDB"
+date: 2019-12-09
+category: Code
+tags:
+  - Swift
+  - Database
+---
+
+Designed to provide *local* data storage for individual applications and
+devices, SQLite is a small, fast, highly reliable SQL database engine that
+I have a lot of love for.
+
+In this article we'll cover setting up a local SQLite database for your iOS
+app, writing migrations, modelling the data to a struct, and querying.
+
+[GRDB](https://github.com/groue/GRDB.swift) is a fantastic SQLite toolkit
+maintained by [Gwendal Roué](https://github.com/groue) that does all the hard
+work for us: it provides, amongst other features, a query interface so we don't
+have to write raw SQL (though you can still do that if you need to),
+migrations, database observation, and encryption. It's what I use in my own
+projects, and it's what we'll be using in this article.
+
+### Part 1: How to setup GRDB in your app
+
+This section will cover installing GRDB, creating the database file, connecting
+to it, and writing a migration.
+
+#### Installation
+
+First things first, you need to add GRDB to your project. Carthage isn't
+supported, but CocoaPods and the Swift Package Manager are.
+
+```ruby:title=Podfile
+pod 'GRDB.swift'
+```
+
+```swift:title=Package.swift
+let package = Package(
+    dependencies: [
+        .package(url: "https://github.com/groue/GRDB.swift.git", ...)
+    ]
+)
+```
+
+#### Creating the database file and connecting to it
+
+Now that GRDB is installed, we can get down to business. Create a file named
+DatabaseManager.swift, AppDatabase.swift, or something similar. This is where
+your migrations will live alongside the database setup function.
+
+```swift:title=DatabaseManager.swift
+import GRDB
+
+var dbQueue: DatabaseQueue!
+
+class DatabaseManager {
+
+    static func setup(for application: UIApplication) throws {
+        let databaseURL = try FileManager.default
+            .url(for: .applicationDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            .appendingPathComponent("db.sqlite")
+
+        dbQueue = try DatabaseQueue(path: databaseURL.path)
+        dbQueue.setupMemoryManagement(in: application)
+    }
+
+}
+```
+
+Right at the top on line 3 you'll see the global `dbQueue` variable. The
+connection to the database gets closed when the `DatabaseQueue` gets
+deallocated, so for most use cases you'll want it kept in memory throughout the
+life cycle of your app.
+
+You'll notice that we never explicitly create the db.sqlite file, we just
+compose its path. That's because `try DatabaseQueue(...)` on line 12 will
+automatically create the database file for us if it can't find an existing one.
+
+`setupMemoryManagement` on line 13 tells GRDB to automatically run
+`dbQueue.releaseMemory()` both when your app enters the background and if your
+app receives memory warnings. `releaseMemory` will then free up as much of the
+memory GRDB is using as possible.
+
+That's it for basic setup; time for the fun parts.
