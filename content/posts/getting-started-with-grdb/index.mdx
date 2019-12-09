@@ -7,6 +7,8 @@ tags:
   - Database
 ---
 
+import { Box } from '@theme-ui/components';
+
 Designed to provide *local* data storage for individual applications and
 devices, SQLite is a small, fast, highly reliable SQL database engine that
 I have a lot of love for.
@@ -82,4 +84,94 @@ automatically create the database file for us if it can't find an existing one.
 app receives memory warnings. `releaseMemory` will then free up as much of the
 memory GRDB is using as possible.
 
-That's it for basic setup; time for the fun parts.
+All that's left to do is actually call the `setup` method in your AppDelegate:
+
+```swift:title=AppDelegate.swift {2}
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    try! DatabaseManager.setup(for: application)
+    return true
+}
+```
+
+### Adding migrations
+
+Now that we have a database and a connection to it, we need to populate it.
+Before data can be inserted though, we need to create a table and columns.
+
+GRDB's `DatabaseMigrator` is responsible for registering and applying
+migrations.
+
+```swift:title=DatabaseManager.swift
+class DatabaseManager {
+
+    static var migrator: DatabaseMigrator {
+        var migrator = DatabaseMigrator()
+
+        migrator.registerMigration("createProject") { db in
+            try db.create(table: "project") { t in
+                t.autoIncrementedPrimaryKey("id")
+                t.column("name", .text).notNull()
+            }
+        }
+
+        return migrator
+    }
+
+}
+```
+
+The above is fairly self-explanatory, but we'll run through it quickly just in
+case.
+
+You can see that line 6 marks the start of a new migration. If you're
+unfamiliar with the concept, migrations provide an easy way to modify the
+structure of the database over time. **They are guranteed to be applied in
+order, and only once.** What that means is that when your user updates your app
+and you've added a migration or two, only the non-applied migrations will run.
+
+Line 7 creates a new table named `project`, then lines 8 and 9 specify the
+name, type, and characteristics of 2 columns. `autoIncrementedPrimaryKey` is
+the best way to define a primary key that's numeric as it automatically
+prevents reuse of the value over the lifetime of the database.
+
+Don't forget to update your `setup` method to actually run the migrations.
+
+```swift:title=DatabaseManager.swift {5}
+class DatabaseManager {
+
+    static func setup(for application: UIApplication) throws {
+        // Existing setup code…
+        try migrator.migrate(dbQueue)
+    }
+
+}
+```
+
+Should you need to make alterations to your tables in future versions of your
+app, you can do so quite straightforwardly by registering a new migration.
+
+```swift
+migrator.registerMigration("v2") { db in
+    try db.alter(table: "project") { t in
+        t.add(column: "isDraft", .boolean).defaults(to: true)
+    }
+
+    try db.rename(table: "project", to: "collection")
+}
+```
+
+
+<Box p={4} color='white' bg='secondary'>
+💡 Tip from the GRDB docs
+
+Database table names should be singular and camel-cased (e.g. country,
+postalAddress). Names that follow another convention are totally OK, but you
+will need to perform extra configuration when using Associations.
+</Box>
+
+---
+
+### Part 2: Populating your database
+
+This section will cover installing GRDB, creating the database file, connecting
+to it, and writing a migration.
