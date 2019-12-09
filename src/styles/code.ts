@@ -42,9 +42,8 @@ export default {
     webkitOverflowScrolling: `touch`,
     bg: `rgb(246, 248, 250)`,
     overflow: `auto`,
-    mx: [0, 0, 0, -3],
+    mb: [3, 3, 4],
     ".token-line": {
-      mx: -3,
     },
     "pre.language-": {
       mt: 0,
@@ -110,6 +109,10 @@ export default {
       content: `'ruby'`,
       background: `#CD342D`,
     },
+    "pre[class~='language-swift']:before": {
+      content: `'swift'`,
+      background: `#F48236`,
+    },
     "pre[class~='language-scss']:before": {
       content: `'scss'`,
       background: `#CD6899`,
@@ -140,18 +143,12 @@ export default {
     position: `relative`,
   },
   ".code-title": {
-    borderWidth: `2px 2px 0 2px`,
-    borderColor: `rgb(246, 248, 250)`,
-    borderStyle: `solid`,
     color: `black`,
     fontSize: 0,
-    px: 3,
-    py: 2,
+    pb: 2,
     fontFamily: `monospace`,
-    mx: [0, 0, 0, -3],
   },
   "[data-name='live-preview'], [data-name='live-editor']": {
-    mx: [0, 0, 0, -3],
   },
   ".token-line": {
     pr: 3,
