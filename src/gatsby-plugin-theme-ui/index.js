@@ -92,6 +92,10 @@ export default {
         fontStyle: `italic`,
       },
     },
+    hr: {
+      ...tailwind.styles.hr,
+      my: [4, 4, 5],
+    }
   },
   text: {
     ...headingStyles,
