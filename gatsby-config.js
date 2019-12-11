@@ -15,7 +15,7 @@ module.exports = {
 		externalLinks: [
 		{
 			name: `Hire Me`,
-			url: `http://inthefield.co`
+			url: `/hire`
 		},
 		{
 			name: `GitHub`,
