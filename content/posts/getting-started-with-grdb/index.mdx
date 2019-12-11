@@ -1,6 +1,7 @@
 ---
 title: "SQLite and iOS: Getting started with GRDB"
 date: 2019-12-09
+rewriteSlug: "/2019/12/11/sqlite-ios-getting-started-with-grdb"
 category: Code
 tags:
   - Swift
@@ -9,12 +10,9 @@ tags:
 
 import { Box } from '@theme-ui/components';
 
-Designed to provide *local* data storage for individual applications and
-devices, SQLite is a small, fast, highly reliable SQL database engine that
-I have a lot of love for.
-
-In this article we'll cover setting up a local SQLite database for your iOS
-app, writing migrations, modelling the data to a struct, and querying.
+Designed to provide local data storage for individual applications and devices,
+SQLite is a small, fast, highly reliable SQL database engine that I have a lot
+of love for.
 
 [GRDB](https://github.com/groue/GRDB.swift) is a fantastic SQLite toolkit
 maintained by [Gwendal Roué](https://github.com/groue) that does all the hard
@@ -22,6 +20,11 @@ work for us: it provides, amongst other features, a query interface so we don't
 have to write raw SQL (though you can still do that if you need to),
 migrations, database observation, and encryption. It's what I use in my own
 projects, and it's what we'll be using in this article.
+
+This article will cover setting up a local SQLite database for your iOS app,
+writing migrations, writing a struct to the database without any manual value
+mapping, and querying data pre-modelled into a struct. There will be
+a follow-up article that'll cover some of GRDB's more advanced features.
 
 ### Part 1: How to setup GRDB in your app
 
@@ -49,7 +52,7 @@ let package = Package(
 
 Now that GRDB is installed, we can get down to business. Create a file named
 DatabaseManager.swift, AppDatabase.swift, or something similar. This is where
-your migrations will live alongside the database setup function.
+your migrations will live alongside the setup function.
 
 ```swift:title=DatabaseManager.swift
 import GRDB
@@ -73,7 +76,7 @@ class DatabaseManager {
 Right at the top on line 3 you'll see the global `dbQueue` variable. The
 connection to the database gets closed when the `DatabaseQueue` gets
 deallocated, so for most use cases you'll want it kept in memory throughout the
-life cycle of your app.
+lifetime of your app.
 
 You'll notice that we never explicitly create the db.sqlite file, we just
 compose its path. That's because `try DatabaseQueue(...)` on line 12 will
@@ -84,7 +87,7 @@ automatically create the database file for us if it can't find an existing one.
 app receives memory warnings; `releaseMemory` will then free up as much of the
 memory GRDB is using as possible.
 
-All that's left to do is actually call the `setup` method in your AppDelegate:
+All that's left to do is call the `setup` method in your AppDelegate:
 
 ```swift:title=AppDelegate.swift {2}
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -95,16 +98,20 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 ### Adding migrations
 
-We now have a database and a connection to it. All that's left to do before we
-can populate it is to create a table and define its columns.
+We now have a database and a connection to it, but before we can insert data,
+we still need to define a table and its columns.
 
 GRDB's `DatabaseMigrator` is responsible for registering and applying
 migrations. If you're unfamiliar with the concept, migrations provide an easy
-way to evolve the structure of the database over time. **They are guaranteed to
-be applied in order, and only once.** What that means for us is that when
-a user updates your app and you have, for example, added a new feature that
-required a new column in one of your tables, the migration that added that
-column will be the only one that's run.
+way to evolve the structure of a database over time. **They are guaranteed to
+be applied in order, and only once.**
+
+For example, say you added a new feature to version 2 of your app that required
+a new column in one of your tables (or even a new table entirely). GRDB will
+check when the `DatabaseMigrator` is run and see that there's a new migration
+that has yet to be applied to the database. It will then run that migration,
+ignoring all the other ones that have already been run, and the database
+structure in version 2 of your app will now match your updated model(s).
 
 ```swift:title=DatabaseManager.swift
 class DatabaseManager {
@@ -131,18 +138,17 @@ The above is fairly self-explanatory, but we'll run through it quickly just in
 case.
 
 You can see that line 6 marks the start of a new migration. It's important to
-remember that once the first version version of your app has been released, you
-can't go back and make changes to old migrations because those changes won't be
-applied on user's devices. You can make changes, but you need to do so in a new
-migration.
+remember that once the first version of your app has been released, you can't
+go back and make changes to old migrations because those changes won't be
+applied on user's devices. Any changes must be applied in a new migration.
 
 Line 7 creates a new table named `project`, then lines 8 and 9 specify the
 name, type, and characteristics of 2 columns. `autoIncrementedPrimaryKey` is
-the best way to define a primary key that's numeric as it automatically
+the best way to define a primary key that's numeric, as it automatically
 prevents reuse of the value over the lifetime of the database.
 
 Once your first migration(s) are in place, don't forget to update your `setup`
-method to actually run the migrations.
+method to run the migrations.
 
 ```swift:title=DatabaseManager.swift {5}
 class DatabaseManager {
@@ -185,14 +191,32 @@ postalAddress). Names that follow another convention are totally OK, but you
 will need to perform extra configuration when using Associations.
 </Box>
 
+In the early days of an apps development, its database schema changes
+frequently. To avoid a pileup of migrations before v1 is even out the door, you
+can tell GRDB to automatically reset the database if it detects a change to an
+existing migration.
+
+```swift:title=DatabaseManager.swift {4-6}
+static var migrator: DatabaseMigrator {
+    // Migrations…
+
+    #if DEBUG
+    migrator.eraseDatabaseOnSchemaChange = true
+    #endif
+
+    return migrator
+}
+
+```
+
 ---
 
-### Part 2: Reading and writing your database
+### Part 2: Reading from and writing to your database
 
-We'll ignore line 11 in the last snippet of Part 1, meaning that we now have
-a `project` table that has `id`, `name`, `description`, `due`, and `isDraft`
-columns that need modelling into a struct, which is what we'll do be doing in
-Part 2, along with some simple reading and writing.
+We'll ignore line 11 in the 'alterations snippet' in Part 1, meaning that we
+now have a `project` table that has `id`, `name`, `description`, `due`, and
+`isDraft` columns that need modelling into a struct. That's what we'll be doing
+in Part 2, along with some simple reading and writing.
 
 #### Structuring your data
 
@@ -268,13 +292,13 @@ Project(id: nil, name: "Getting started with GRDB", description: Optional("A blo
 ```
 
 As you can see, the project's `id` is still `nil` even though the write
-succeeded. To get the `id`, you'd need to go back in and read from the database
-which is far from ideal. Fortunately, we can tell GRDB to mutate the variable
-`insert` was called on once the insertion has completed.
+succeeded. To get the `id`, you'd need to go back in and read from the
+database, which is far from ideal. Fortunately, we can tell GRDB to mutate the
+variable `insert` was called on once the insertion has completed.
 
-Go back to your model add add the following to the extension:
+Go back to your model and add the following to the extension:
 
-```swift:title=Models/Project.swift
+```swift:title=Models/Project.swift {3-5}
 extension Project: Codable, FetchableRecord, MutablePersistableRecord {
 
     mutating func didInsert(with rowID: Int64, for column: String?) {
@@ -284,7 +308,7 @@ extension Project: Codable, FetchableRecord, MutablePersistableRecord {
 }
 ```
 
-Now, if you were to run the `write` snippet above, `print` would now return the
+Now, if you were to run the `write` snippet above, `print` would return the
 `id` without having to go back for an extra read:
 
 ```
@@ -338,6 +362,7 @@ error could be lessened. Lets map the columns to an enum.
 
 ```swift:title=Models/Project.swift
 extension Project {
+
     private enum Columns {
         static let id = Column(CodingKeys.id)
         static let name = Column(CodingKeys.name)
@@ -348,7 +373,6 @@ extension Project {
 
     static func drafts() -> QueryInterfaceRequest<Project> {
         return Project.filter(Columns.isDraft == true)
-
     }
 
 }
@@ -384,6 +408,21 @@ extension Project {
 }
 ```
 
+Or have multiple filters:
+
+```swift:title=Models/Project.swift
+extension Project {
+
+    static func draftsDueSoon() -> QueryInterfaceRequest<Project> {
+        return Project
+            .filter(Columns.isDraft == true)
+            .filter(Columns.due < Date().) TODO
+            .order(Columns.due)
+    }
+
+}
+```
+
 Or get a specific draft:
 
 ```swift:title=Models/Project.swift
@@ -406,10 +445,26 @@ do {
 }
 ```
 
-You get the idea, and I hope I've shown just how nice GRDB is to work with.
+As it's specifically matching against the row id, the above could also be
+written as:
 
-With the basics out of the way, we'll dig into some of GRDB's more advance
-features next week, including database observation and reacting to changes,
-saving custom types, and defining associations.
+```swift
+do {
+    try dbQueue.read { db in
+        let draft = try Project.fetchOne(db, key: 12)
+    }
+} catch {
+    print("\(error)")
+}
+```
 
-See you then.
+As you can see, GRDB's query interface makes database requests very
+approachable even if you have no experience writing SQL.
+
+GRDB is packed with features — far too many to go through in a single post and
+many of which don't belong in a 'getting started' guide. I'll write about my
+favourite ones (including reacting to database changes and saving custom types)
+in a follow-up post next week, but even then, there'll still be things I won't
+have covered. Fortunately, GRDB has excellent
+[documentation](https://github.com/groue/GRDB.swift). I'd encourage you to
+check out.
