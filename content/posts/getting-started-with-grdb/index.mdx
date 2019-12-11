@@ -79,8 +79,9 @@ deallocated, so for most use cases you'll want it kept in memory throughout the
 lifetime of your app.
 
 You'll notice that we never explicitly create the db.sqlite file, we just
-compose its path. That's because `try DatabaseQueue(...)` on line 12 will
-automatically create the database file for us if it can't find an existing one.
+compose its path. That's because the `DatabaseQueue` initializer on line 12
+will automatically create the database file for us if it can't find an existing
+one.
 
 `setupMemoryManagement` on line 13 tells GRDB to automatically run
 `dbQueue.releaseMemory()` both when your app enters the background and if your
@@ -134,8 +135,8 @@ class DatabaseManager {
 }
 ```
 
-The above is fairly self-explanatory, but we'll run through it quickly just in
-case.
+Most of the above is fairly self-explanatory, but we'll run through it quickly
+just in case.
 
 You can see that line 6 marks the start of a new migration. It's important to
 remember that once the first version of your app has been released, you can't
@@ -213,7 +214,7 @@ static var migrator: DatabaseMigrator {
 
 ### Part 2: Reading from and writing to your database
 
-We'll ignore line 11 in the 'alterations snippet' in Part 1, meaning that we
+We'll ignore line 11 in the "alterations snippet" in Part 1, meaning that we
 now have a `project` table that has `id`, `name`, `description`, `due`, and
 `isDraft` columns that need modelling into a struct. That's what we'll be doing
 in Part 2, along with some simple reading and writing.
@@ -233,10 +234,10 @@ struct Project {
 }
 ```
 
-GRDB recommends using an `Int64` for auto-incrementing ids so that's what we'll
-do. You'll notice that it's written as an optional — that's because an instance
-of the struct can exist before it's been written to the database for the first
-time and thus before it's been assigned its database `id`.
+GRDB recommends using an `Int64` for auto-incrementing ids, so that's what
+we'll do. You'll notice that it's written as an optional — that's because an
+instance of the struct can exist before it's been written to the database for
+the first time and thus before it's been assigned its database `id`.
 
 `name` isn't optional because we added the `notNull` constraint to it during
 the migration. The inverse is why `description` and `due` are both optional.
@@ -357,8 +358,8 @@ extension Project {
 }
 ```
 
-Not bad, but we the readability could be improved and the room for developer
-error could be lessened. Let's map the columns to an enum.
+Not bad, but the readability could be improved and the room for developer error
+could be lessened. Let's map the columns to an enum.
 
 ```swift:title=Models/Project.swift
 extension Project {
