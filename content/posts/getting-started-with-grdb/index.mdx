@@ -272,7 +272,7 @@ do {
         var project = Project(
             name: "Getting started with GRDB",
             description: "A blog post",
-            due: Date().addingTimeInterval(1440 * 60)
+            due: Date().addingTimeInterval(24 * 60 * 60)
         )
 
         try! project.insert(db)
@@ -325,7 +325,7 @@ do {
         var project = Project(
             name: "Getting started with GRDB",
             description: "A blog post",
-            due: Date().addingTimeInterval(1440 * 60)
+            due: Date().addingTimeInterval(24 * 60 * 60)
         )
 
         try! project.insert(db)
@@ -416,7 +416,7 @@ extension Project {
     static func draftsDueSoon() -> QueryInterfaceRequest<Project> {
         return Project
             .filter(Columns.isDraft == true)
-            .filter(Columns.due < Date().) TODO
+            .filter(Columns.due < Date().addingTimeInterval(24 * 60 * 60))
             .order(Columns.due)
     }
 
@@ -459,7 +459,9 @@ do {
 ```
 
 As you can see, GRDB's query interface makes database requests very
-approachable even if you have no experience writing SQL.
+approachable, even if you have no experience writing SQL.
+
+### Until next time
 
 GRDB is packed with features — far too many to go through in a single post and
 many of which don't belong in a 'getting started' guide. I'll write about my
