@@ -10,6 +10,7 @@ export const query = graphql`
         slug
         title
         date(formatString: "DD.MM.YYYY")
+        category
         tags {
           name
           slug
