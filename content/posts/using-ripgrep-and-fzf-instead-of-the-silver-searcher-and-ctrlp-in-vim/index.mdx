@@ -55,15 +55,15 @@ nnoremap <leader>o :Files<cr>
 The main thing left to do now it to tell fzf to use ripgrep. We can do so in our `.zshrc` / `.bashrc`.
 
 ```
-export FZF_DEFAULT_COMMAND='rg --files --hidden --smartcase --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --smart-case --glob "!.git/*"'
 ```
 
 Let’s take a look at those flags:
 
 - `--files`: Makes ripgrep print each file that would be searched, but prevents ripgrep from actually searching it.
 - `--hidden`: Makes ripgrep search hidden directories and files.
-- `--smartcase`: Makes ripgrep search case-insensitively if the pattern is all lowercase, however if there is a capital the search becomes case-sensitive.
+- `--smart-case`: Makes ripgrep search case-insensitively if the pattern is all lowercase, however if there is a capital the search becomes case-sensitive.
 - `--glob`: (with an exclamation mark) makes ripgrep ignore directories matching the passed patterns. In this case, we want to ignore the .git folder.
 
 One flag that I haven’t included, but which you may want to use is `--no-ignore`, which will tell ripgrep to search files and directories listed in `.gitignore`, `.ignore`, etc. By default, files that are set to be ignored in those files are ignored by ripgrep.
-  
+
