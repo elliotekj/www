@@ -13,10 +13,10 @@ import { Box } from '@theme-ui/components';
 In part 1: ["Getting started with
 GRDB"](/2019/12/11/sqlite-ios-getting-started-with-grdb), we covered how to
 setup a local SQLite database for your iOS app, how to write migrations, how to
-adopt GRDB's protocols so a struct can be saved to the database, and latsly we
-looked at some basic querying.
+adopt GRDB's protocols within a struct that can then be saved to the database,
+and latsly we looked at some basic querying.
 
-In part 2, we have a look at how to observe and react to changes in the
+In part 2, we'll have a look at how to observe and react to changes in the
 database, how to define relationships between tables, how to save a custom
 type, and how to encrypt your databse.
 
@@ -30,8 +30,8 @@ NOTES:
 ### Observing and reacting to changes
 
 GRDB leverages SQLite's data change notifications to provide us with an
-efficient `ValueObservation` tool that will in turn call either an `onChange`
-or `onError` callback in our app. It's one of my favourite features of GRDB.
+efficient `ValueObservation` tool that will, in turn, call either the
+`onChange` or `onError` callback it's given.
 
 In part 1, a `Project` model was used for all of the examples. Here, we'll
 pretend that a `Project` can have many tasks, and that we want to observe any
@@ -50,8 +50,8 @@ class TaskListViewController: UIViewController {
 }
 ```
 
-Our `tasksObserver` now needs to be defined. We'll break its configuration out
-into its own function; remember to call it in `viewDidLoad` or wherever you're
+Our `tasksObserver` now needs a value. We'll break its configuration out into
+its own function; remember to call it in `viewDidLoad`, or wherever you're
 handling view setup.
 
 When `start` is first called on the `ValueObservation`, it will run the query
