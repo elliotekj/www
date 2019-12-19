@@ -24,8 +24,128 @@ type, and how to encrypt your databse.
 
 ### Defining associations
 
-NOTES:
-- Do this over the observation so the whole "tasks belonging to a project" thing makes sense.
+To show you how associations work in GRDB, we'll create a tasks table and setup
+a "has many" relationship between projects and tasks. Tasks, in turn, will have
+a "belongs to" relationship with projects.
+
+```swift:title=DatabaseManager.swift
+class DatabaseManager {
+
+    static var migrator: DatabaseMigrator {
+        var migrator = DatabaseMigrator()
+
+        migrator.eraseDatabaseOnSchemaChange = true
+
+        migrator.registerMigration("createProject") { db in
+            try db.create(table: "project") { t in
+                t.autoIncrementedPrimaryKey("id")
+                t.column("name", .text).notNull()
+                t.column("description", .text)
+                t.column("due", .date)
+                t.column("isDraft", .boolean).notNull().defaults(to: true)
+            }
+        }
+
+        migrator.registerMigration("createTask") { db in
+            try db.create(table: "task") { t in
+                t.autoIncrementedPrimaryKey("id")
+                t.column("projectId", .integer).notNull().indexed().references("project", onDelete: .cascade)
+                t.column("name", .text).notNull()
+                t.column("isDone", .boolean).notNull().defaults(to: false)
+            }
+        }
+
+        return migrator
+    }
+
+}
+```
+
+We went through what most of the above does in part 1; the interesting bit is
+line 21, where we create a column named `projectId`. The column is defined as
+an integer (because the primary key of the project table is an integer), then
+constraied to be `notNull` because we want SQLite to guarantee that all tasks
+have a project. `indexed` tells SQLite that we want the column to be indexed,
+which'll increase performance once we start querying for tasks that belong to a
+project (and thus matching against the value of this column). Lastly,
+`references` creates a foreign key constraint which tells SQLite that for each
+row in the tasks table, there exists a project it belongs to. `onDelete:
+.cascade` upholds that constraint by automatically deleting all tasks that
+belong a project when that project is deleted from the database.
+
+Now that the required migrations have been done, create a `Task` struct for the
+newly created table (go back and reference part 1 if you're unsure how to do
+so). Once you've done that, we can move on to updating our `Project` struct.
+
+```swift:title=Models/Project.swift {1,3,13-15}
+extension Project: TableRecord, EncodableRecord {
+
+    static let tasks = hasMany(Task.self)
+
+    private enum Columns {
+        static let id = Column(CodingKeys.id)
+        static let name = Column(CodingKeys.name)
+        static let description = Column(CodingKeys.description)
+        static let due = Column(CodingKeys.due)
+        static let isDraft = Column(CodingKeys.isDraft)
+    }
+
+    var tasks: QueryInterfaceRequest<Task> {
+        return request(for: Project.tasks)
+    }
+
+
+    static func drafts() -> QueryInterfaceRequest<Project> {
+        return Project.filter(Columns.isDraft == true)
+    }
+
+}
+```
+
+In the above snippet, the `extension` that housed our queries in part 1 has
+been updated. First, on line 1, `TableRecord` and `EncodableRecord` have been
+adopted, which gives us access to GRDB's `belongsTo` function. On line 3, that
+function is then used to tell GRDB of the foreign key.
+
+Lines 13 through 15 provide us with a nice way to query all the tasks that
+belong to a project simply by doing:
+
+```swift
+let tasks = try project.tasks.fetchAll(db)
+```
+
+Similarly, we can also update the `Task` struct to provide us with a way to
+fetch the project it belongs to:
+
+```swift:title=Models/Project.swift
+extension Task: TableRecord, EncodableRecord {
+
+    static let project = belongsTo(Project.self)
+
+    var project: QueryInterfaceRequest<Project> {
+        return request(for: Task.project)
+    }
+
+}
+```
+
+To then fetch the parent project, all that's needed is:
+
+```swift
+let project = try task.project.fetchOne(db)
+```
+
+I'll finish this section be noting that filters can still be applied when
+querying a `hasMany` relationship. The following, for example, is valid:
+
+```swift
+let doneTasks = try project
+    .tasks
+    .filter(Column("isDone") == true)
+    .fetchAll(db)
+```
+
+---
 
 ### Observing and reacting to changes
 
