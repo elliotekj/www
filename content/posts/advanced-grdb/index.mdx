@@ -261,8 +261,8 @@ class DatabaseManager {
                 t.column("description", .text)
                 t.column("due", .date)
                 t.column("isDraft", .boolean).notNull().defaults(to: true)
-                t.column("accentColor", .string)
-                t.column("bannerImage", .string)
+                t.column("accentColor", .text)
+                t.column("bannerImage", .text)
             }
         }
 
@@ -276,7 +276,7 @@ You can see on lines 15 and 16 that the data still has to adhere to the basic
 types in the database, but thanks to GRDB we won't have to manually build or
 breakdown a `ProjectBrand` every time we read or write a `Project`.
 
-```swift:title=Models/Project.swift {7}
+```swift:title=Models/Project.swift
 struct Project {
     var id: Int64?
     var name: String
@@ -290,7 +290,43 @@ struct ProjectBrand {
     var accentColor: String?
     var bannerImage: String?
 }
+
+extension Project: TableRecord, FetchableRecord, MutablePersistableRecord {
+
+    enum Columns: String, ColumnExpression {
+        case id, name, description, due, isDraft, accentColor, bannerImage
+    }
+
+    init(row: Row) {
+        id = row[Columns.id]
+        name = row[Columns.name]
+        description = row[Columns.description]
+        due = row[Columns.due]
+        isDraft = row[Columns.isDraft]
+        brand = ProjectBrand(
+            accentColor: row[Columns.accentColor],
+            bannerImage: row[Columns.bannerImage]
+        )
+    }
+
+    func encode(to container: inout PersistenceContainer) {
+        container[Columns.id] = id
+        container[Columns.name] = name
+        container[Columns.description] = description
+        container[Columns.due] = due
+        container[Columns.isDraft] = isDraft
+        container[Columns.accentColor] = brand.accentColor
+        container[Columns.bannerImage] = brand.bannerImage
+    }
+
+    mutating func didInsert(with rowID: Int64, for column: String?) {
+        id = rowID
+    }
+
+}
 ```
+
+The above snippet isn't quite as straightforward as the struct
 
 You can see on line 7 that instead of `accentColor` and `bannerImage` keys in
 the project struct, we have a `brand` key of type `ProjectBrand`. Your struct
@@ -298,4 +334,12 @@ should represent your data as you want to use it in your app, now how it is
 structured in the database. Of course, that means that we need to tell GRDB
 what the `brand` key is and how to assign its value.
 
-
+```swift
+var p1 = Project(
+    name: "First project",
+    description: "This is my first project",
+    due: Date().addingTimeInterval(1440 * 60),
+    isDraft: true,
+    brand: ProjectBrand(accentColor: "#fff", bannerImage: "https://elliotekj.com/img.jpg")
+    )
+```
