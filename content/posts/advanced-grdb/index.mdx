@@ -1,6 +1,6 @@
 ---
 title: "SQLite and iOS: Advanced GRDB"
-date: 2019-12-09
+date: 2019-12-20
 rewriteSlug: "/2019/12/11/sqlite-ios-advanced-grdb"
 category: Code
 tags:
@@ -242,9 +242,9 @@ accompaniment to what we've just covered if that's what you're implementing.
 ### Reading and writing custom data types
 
 GRDB supports strings, integers, dates, booleans, and enums (that adopt
-`DatabaseValueConvertible`) out of the box. For this example, we'll say that a
-project can have a user-defined accent color and banner image that is modelled
-into a `ProjectBrand` struct.
+`DatabaseValueConvertible`) out of the box. For this example, we'll contrive a
+requirement that projects can have a user-defined accent color and banner image
+that are modelled into a `ProjectBrand` struct.
 
 ```swift:title=DatabaseManager.swift {15-16}
 class DatabaseManager {
@@ -272,9 +272,13 @@ class DatabaseManager {
 }
 ```
 
-You can see on lines 15 and 16 that the data still has to adhere to the basic
-types in the database, but thanks to GRDB we won't have to manually build or
-breakdown a `ProjectBrand` every time we read or write a `Project`.
+You can see on lines 15 and 16 that the two new fields still have to adhere to
+the basic types when they're in the database and that they are stored in their
+own columns.
+
+GRDB will come into play post-read, transforming the two fields into one
+`ProjectBrand`, and pre-write, splitting the `ProjectBrand` back down to two
+fields in preparation for SQLite. Let's implement that.
 
 ```swift:title=Models/Project.swift
 struct Project {
@@ -307,6 +311,8 @@ extension Project: TableRecord, FetchableRecord, MutablePersistableRecord {
             accentColor: row[Columns.accentColor],
             bannerImage: row[Columns.bannerImage]
         )
+
+        super.init(row: row)
     }
 
     func encode(to container: inout PersistenceContainer) {
@@ -326,20 +332,49 @@ extension Project: TableRecord, FetchableRecord, MutablePersistableRecord {
 }
 ```
 
-The above snippet isn't quite as straightforward as the struct
-
-You can see on line 7 that instead of `accentColor` and `bannerImage` keys in
-the project struct, we have a `brand` key of type `ProjectBrand`. Your struct
+You'll see on line 7 that instead of `accentColor` and `bannerImage` keys in
+the `Project` struct, we have a `brand` key of type `ProjectBrand`. Your struct
 should represent your data as you want to use it in your app, now how it is
-structured in the database. Of course, that means that we need to tell GRDB
-what the `brand` key is and how to assign its value.
+structured in the database.
+
+The two main differences when compared to the `Project` struct we wrote in part
+1 are the `init` and `encode` functions. The former is responsible for
+modelling a database row into a `Project` when the database is read; you can
+see that lines 27 through 30 transform the `accentColor` and `bannerImage`
+rows into a `ProjectBrand`. The latter is responsible for splitting the
+`Project` back down into database rows — lines 41 and 42 break down the
+`ProjectBrand`.
+
+With all that in place, here's what a `Project` would look like in your app:
 
 ```swift
-var p1 = Project(
-    name: "First project",
-    description: "This is my first project",
-    due: Date().addingTimeInterval(1440 * 60),
-    isDraft: true,
-    brand: ProjectBrand(accentColor: "#fff", bannerImage: "https://elliotekj.com/img.jpg")
+try dbQueue.write { db in
+    var projectBrand = ProjectBrand(
+      accentColor: "#005eff",
+      bannerImage: nil
     )
+
+    var project = Project(
+        name: "Advanced GRDB",
+        description: "A blog post",
+        due: Date().addingTimeInterval(24 * 60 * 60),
+        isDraft: true,
+        brand: projectBrand
+    )
+
+    try! project.insert(db)
+}
 ```
+
+---
+
+### Wrapping up
+
+I hope this 2 part series — the first series I've ever published on this site —
+has helped you get to grips with SQLite on iOS, and shown you its power and
+ease of use when paired with GRDB.
+
+There's no comment section on here but I cross-post to dev.to which does have
+one. If you have any remaining questions, feel free to post there.
+
+Thanks for reading.
