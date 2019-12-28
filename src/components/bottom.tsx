@@ -25,6 +25,10 @@ const Bottom = () => {
             description: 'A MetaWeblog API Server for Hugo.'
         },
         {
+            name: 'Oxi',
+            description: 'Oxi wraps an asynchronous Rust server around Mercury Parser.'
+        },
+        {
             name: 'Iron Middlefiddle',
             description: 'Route specific middleware made easy in Iron.'
         },
