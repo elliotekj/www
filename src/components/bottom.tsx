@@ -36,6 +36,10 @@ const Bottom = () => {
             name: 'Specify',
             description: 'Quickly generate a rectangle or oval with specific dimensions and positioning in Sketch.'
         },
+        {
+            name: 'enough.vim',
+            description: 'A minimal Vim colorscheme searching for balance.'
+        },
     ]
 
     return (
