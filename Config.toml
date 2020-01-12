@@ -1,0 +1,22 @@
+base = "~/dev/www"
+
+[content]
+path = "content"
+
+[[content.page_types]]
+type = "post"
+path = "posts"
+default_template = "blogpost.html"
+
+[[content.page_types]]
+type = "page"
+path = "pages"
+default_template = "raw.html"
+
+[[content.page_types]]
+type = "public"
+path = "public"
+default_template = "raw.html"
+
+[templates]
+path = "templates"
