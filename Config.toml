@@ -14,8 +14,8 @@ path = "pages"
 default_template = "raw.html"
 
 [[content.page_types]]
-type = "public"
-path = "public"
+type = "asset"
+path = "assets"
 default_template = "raw.html"
 
 [templates]
