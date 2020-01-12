@@ -1,4 +1,5 @@
 [env]
+THEA_CACHE = false
 THEA_PATH = "${HOME}/dev/thea/target/debug"
 
 [tasks.default]
