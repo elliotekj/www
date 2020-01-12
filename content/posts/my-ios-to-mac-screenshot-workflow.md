@@ -40,7 +40,7 @@ You will be asked to setup Dropbox in Workflow. As long as you already have a Dr
 
 Open up Ember on your Mac and go to Preferences → Auto-Import. In the bottom left hand corner, click the ✚ icon and select the same folder you chose as your “Destination Path” back in the Workflow section. I like to have “Move original to Trash” turned on but that’s completely optional. The rest of the settings can be left as they are.
 
-![The settings in Ember’s auto import](./auto-import2x.jpg)
+![The settings in Ember’s auto import](/static/posts/ios-mac-screenshot-workflow/auto-import2x.jpg)
 
 That’s it, you’re good to go. It’s worth noting that Workflow doesn’t always handle a large number screenshots well though. I’ve found it’s best to do them half a dozen or so at a time if you have a lot.
 

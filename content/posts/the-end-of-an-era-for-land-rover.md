@@ -11,7 +11,7 @@ I was disappointed to read this morning that the 2016 model of the Land Rover De
 
 I grew up around these vehicles and even learnt to drive in a 1972 Series III, which remains the only car I’ve ever owned and still runs remarkably smoothly. It has of course had a few troubles over the years, but these cars are basically huge Meccano sets (well, the newer ones not so much) and a great way to learn about engines and how all the internal parts work together.
 
-![1972 Series III Land Rover](./IMG_5300.jpg)
+![1972 Series III Land Rover](/static/posts/end-era-land-rover/IMG_5300.jpg)
 
 I don’t know what Land Rover will replace the line with, but there’ll never be another series like the Defender.
 

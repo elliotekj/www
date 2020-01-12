@@ -35,7 +35,7 @@ In the bottom left hand corner of your Photoshop window, there’s an indicator 
 
 By clicking on the ▶ symbol to the right of it, you can change it to show a variety of different information including “Efficiency”.
 
-![Efficiency Indicator](./efficiency-indicator.png)
+![Efficiency Indicator](/static/posts/guide-optimising-photoshop-performance/efficiency-indicator.png)
 
 The indicator will now read something like “Efficiency: 100%”. When that value goes below 100%, it means that Photoshop has used all of the available RAM you have allocated for it and is now using the scratch disk. This will cause Photoshop to slow down.
 

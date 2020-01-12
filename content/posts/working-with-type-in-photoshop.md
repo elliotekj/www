@@ -37,7 +37,7 @@ If you are unfamiliar with this feature, Tuts+ have a handy [getting started vid
 
 I only really use this when doing web design but it’s still good to know about. If you want to wrap text around an image then you can do so fairly easily with vector paths. Make sure to have a look at this [video tutorial from “Method and Craft”](http://methodandcraft.com/videos/shaping-textfields-in-photoshop) if you’re unsure how to achieve this.
 
-![Text wrapping around an image](./wrapping_text.png)
+![Text wrapping around an image](/static/posts/working-type-photoshop/wrapping_text.png)
 
 ### Filter Text Layers
 

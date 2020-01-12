@@ -9,13 +9,13 @@ tags:
 
 This is a problem more easily shown than explained. Take the following image:
 
-![](./indicator-2@2x.png)
+![](/static/posts/workaround-box-shadow-not-passing-inside-border/indicator-2@2x.png)
 
 It’s an indicator — the sort you’d find on any colorpicker — with a shadow. It seems simple enough, but how would you build it in CSS?
 
 My first port of call was a `box-shadow` on an element with a 2px white border. The problem with that is that `box-shadow`’s shadow doesn’t take `border` styles into account, it just creates a shadow behind the element it was applied to resulting in this:
 
-![](./indicator-1@2x.png)
+![](/static/posts/workaround-box-shadow-not-passing-inside-border/indicator-1@2x.png)
 
 After some tinkering, this is the solution I came up with…
 

@@ -7,7 +7,7 @@ tags:
   - Vim
 ---
 
-![GIF of the mapping in action](./moving-lines-in-vim.gif)
+![GIF of the mapping in action](/static/posts/moving-lines-of-code-around-in-vim/moving-lines-in-vim.gif)
 
 I recently added a handy little set of mappings to my `.vimrc` for moving code around.
 

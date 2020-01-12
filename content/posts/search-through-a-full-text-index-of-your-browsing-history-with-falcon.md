@@ -9,7 +9,7 @@ tags:
 
 I have tried and failed to find a specific previously-visited page via Chrome’s history search an innumerable amount of times. There’ll be a certain piece of content that I remember and want to go back to, but Chrome’s history search only looks at the page title and URL. If I can’t remember either of those precisely enough then I’m left to either abandon the search or go digging by hand. Enter Falcon.
 
-![Falcon in action](./falcon.gif)
+![Falcon in action](/static/posts/search-through-a-full-text-index-of-your-browsing-history-with-falcon/falcon.gif)
 
 Falcon is a Chrome extension that indexes the text of each page you visit, then allows you to search through said index via the omnibar. Searches can be done in a variety of ways. The simplest is to simply type the one or more words Falcon should look for in a page. The other optional niceties include providing a `before` and/or `after` argument, or a word to ignore (so that if a page matches your search but contains a word to be ignored then Falcon won’t return the page).
 

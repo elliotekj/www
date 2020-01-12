@@ -13,7 +13,7 @@ I’ll walk through the basics of Chrome extensions then show you the bits and b
 
 It’s functionality is fairly straight forward: when you’re on `https://dribbble.com`, it’ll add a button in the likes panel that — when clicked — will send the shot straight to your [Ember](http://realmacsoftware.com/ember) library. This is made possible by one of Ember’s URL schemes: `emberapp:///import?url={{URL}}`.
 
-![Before and After of the Dribbble UI](./save-in-ember-preview.png)
+![Before and After of the Dribbble UI](/static/posts/lets-breakdown-the-save-in-ember-browser-extension/save-in-ember-preview.png)
 
 You’ll still find parts of this post informative, even if you don’t have a copy of Ember. Should you want to try it out however, there’s a 14 day [free trial](http://realmacsoftware.com/ember#download) of Ember available on our site.
 

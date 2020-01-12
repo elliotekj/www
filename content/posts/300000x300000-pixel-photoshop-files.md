@@ -9,7 +9,7 @@ tags:
 
 Those are, [apparently](https://www.adobe.com/devnet-apps/photoshop/fileformatashtml/), the dimensions a PSB file maxes out at. Out of curiosity, I tried creating a new document at those dimensions and despite having 36.91GB of free space I got the following warning:
 
-![OS X's “Your startup disk is almost full” warning dialog](./Screen_Shot_2015-04-10_at_23.06.12.png)
+![OS X's “Your startup disk is almost full” warning dialog](/static/posts/300000x300000-pixel-photoshop-files/Screen_Shot_2015-04-10_at_23.06.12.png)
 
 [@JonJungemann](http://twitter.com/JonJungemann) tried with 900GB of free space and got the same warning.
 

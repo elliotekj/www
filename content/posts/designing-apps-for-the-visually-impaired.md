@@ -22,11 +22,11 @@ The main types of disability that can have an effect on how people experience yo
 
 If somebody is colour blind that does not necessarily mean that they are monochromats — people who can only distinguish brightness variations but not colours — which is the rarest form of colour blindness. It more commonly refers to people who have difficulty perceiving reds, yellows and greens from one another.
 
-![Full colour vs Monochrome](./full_mono.png)
+![Full colour vs Monochrome](/static/posts/designing-apps-visually-impaired/full_mono.png)
 
 Deuteranopia, a subtype of red/green colour blindness, is the most common form of colour blindness affecting an estimated 1% of all males. This does not mean that people affected with this type of colour blindness will mix up red and green, but rather that they will confuse colours that are made up of red or green as a whole. For example, not being able to distinguish the difference between blue and purple.
 
-![Full colour vs Deuteranopia](./full_deut.png)
+![Full colour vs Deuteranopia](/static/posts/designing-apps-visually-impaired/full_deut.png)
 
 ### The different types of colour blindness
 
@@ -35,7 +35,7 @@ We have already talked about the most common (deuteranopia) and the least common
 - **Protanopia:** The inability to distinguish between blue and green colours as well as between red and green colours.
 - **Tritanopia:** These people will confuse green with blue and yellow with violet.
 
-![Full colour vs Protanopia vs Tritanopia](./full_prot_trit.png)
+![Full colour vs Protanopia vs Tritanopia](/static/posts/designing-apps-visually-impaired/full_prot_trit.png)
 
 ### What can we do as designers?
 
@@ -51,11 +51,11 @@ Fortunately, there are ways we can test our designs to make sure that everyone c
 
 Photoshop offers built-in testing for the two most common types of colour blindness, deuteranopia and protanopia.
 
-![](./photoshop.png)
+![](/static/posts/designing-apps-visually-impaired/photoshop.png)
 
 [Skala Preview](https://itunes.apple.com/app/skala-preview/id498875079?mt=12&at=1l3vn5T) is my tool of choice for seeing what my designs look like, in real time, on a device. It is particularly useful because it also has the ability to to preview designs from the point of view of people with deuteranopia, protanopia and tritanopia as well as monochromats.
 
-![Skala](./skala.png)
+![Skala](/static/posts/designing-apps-visually-impaired/skala.png)
 
 [Sim Daltonism](https://itunes.apple.com/ca/app/sim-daltonism/id693112260?mt=12&l=en&at=1l3vn5T) will allow you to test all of the visual impairments we have discussed directly on your Mac.
 

@@ -7,7 +7,7 @@ tags:
   - Sketch
 ---
 
-![The rectangle creation view in Specify](./banner.jpg)
+![The rectangle creation view in Specify](/static/posts/specify-quickly-generate-a-shape-with-specific-dimensions-in-sketch/banner.jpg)
 
 Yummygum were [on Twitter](https://twitter.com/yummygum/status/740846589468680192) yesterday searching for a Sketch plugin to generate a shape based off of specific user-inputted dimensions. As it happened, there wasn’t one. So I built one.
 

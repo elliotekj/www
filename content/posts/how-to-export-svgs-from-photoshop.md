@@ -35,7 +35,7 @@ Open up your PSD and go to File \> Generate \> Image Assets. You will need to do
 
 When naming the layer (or group) you want to export, append .svg to the layer name. For example, your-layer-name.svg.
 
-![Layers Panel](./layers-panel.png)
+![Layers Panel](/static/posts/how-to-export-svgs-from-photoshop/layers-panel.png)
 
 It takes a couple of minutes to setup the first time but once done, your SVGs will export alongside your PNGs and any other generated assets.
 

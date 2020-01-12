@@ -58,5 +58,5 @@ Similarly, this will replace all double quotes in the current line with single q
 space+frl '
 ```
 
-![Running find and replace on the current line](./find-replace-line.gif)
+![Running find and replace on the current line](/static/posts/better-find-and-replace-in-vim/find-replace-line.gif)
 

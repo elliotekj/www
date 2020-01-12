@@ -19,7 +19,7 @@ Along with the lighthouse came the idea of a stamp which provides a few advantag
 
 I ended up with the piece below. I’m still not 100% happy with the window section of the lighthouse and the contrast of the logo in general needs more work but overall I feel like I have a fairly solid base to work from. I particularly like the monochrome as it kills three birds with one stone: it looks good, it solves my red stripe issue and it doesn’t draw the eye too much.
 
-![The logo on a light background](./light@2x.png)
+![The logo on a light background](/static/posts/readership-branding-wip/light@2x.png)
 
-![The logo on a dark background](./dark-with-text@2x.png)
+![The logo on a dark background](/static/posts/readership-branding-wip/dark-with-text@2x.png)
 
