@@ -1,0 +1,13 @@
+[env]
+THEA_PATH = "${HOME}/dev/thea/target/debug"
+
+[tasks.default]
+alias = "dev"
+
+[tasks.start_server]
+command = "${THEA_PATH}/thea"
+
+[tasks.dev]
+install_crate = "watchexec"
+command = "watchexec"
+args = ["-r", "-s", "SIGKILL", "cargo make start_server"]
