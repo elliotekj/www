@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="text-lg mb-10">
+    <h1 class="text-3xl text-white font-bold mb-6 ft-heading">Hi, I'm Elliot Jackson.</h1>
+
+    <p class="mb-5">
+        I build software for a living, taking on mostly iOS design and/or
+        development projects and back-end contract work. I have a heavy
+        preference towards strongly statically typed languages, specifically
+        Swift and Rust, but I'm not unfamiliar with modern JavaScript or PHP
+        (via Laravel).
+    </p>
+
+    <p class="mb-5">
+        I also write a fair amount of software for fun, the details of which
+        you can <a href="/opensource">read about here</a>. Some of my
+        favourites are an <a href="">image-based colour palette generator</a>,
+        a <a href="">MetaWeblog API server implementation</a> for Hugo, and <a
+        href="">the performance experiment</a> that runs this very website.
+    </p>
+
+    <p class="">
+        Invent and fit; have fits and reinvent.
+    </p>
+</div>
+
+<div class="text-lg mb-10">
+    <h2 class="text-2xl text-white font-bold mb-5">Latest Posts</h2>
+
+    <dl>
+        {% set sorted_posts = pages | filter(attribute="page_type", value="post") | sort(attribute="date") | reverse  %}
+
+        {% for post in sorted_posts %}
+            <dt class="mb-1"><a href="{{ post.slug }}">{{ post.title }}</a></dt>
+            <dd class="ml-5 mb-5">{{ post.content | safe | striptags | truncate(length=100) }}</dd>
+            {% if loop.index == 5 %}{% break %}{% endif %}
+        {% endfor %}
+    </ul>
+</div>
+{% endblock content %}

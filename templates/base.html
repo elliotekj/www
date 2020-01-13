@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+    <title>{% block title %}{% endblock title %} - Elliot</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+    <header class="site-header w-full border-b border-gray-900">
+        <div class="container flex items-center justify-between mx-auto py-4">
+            <h2 class="text-xl text-white font-semibold">Elliot Jackson</h2>
+
+            <nav>
+                <ul class="flex font-mono text-sm">
+                    <li class="ml-4"><a href="/blog" class="text-gray-400 hover:text-white">Blog</a></li>
+                    <li class="ml-4"><a href="/about" class="text-gray-400 hover:text-white">About</a></li>
+                    <li class="ml-4"><a href="/hire" class="bg-teal-400 rounded text-white font-semibold py-2 px-4">Hire Me</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container flex mx-auto mt-20">
+        <main class="site-main w-full lg:w-9/12 border-r border-gray-900 pr-10">
+            {% block content %}
+            {{ page.content | safe }}
+            {% endblock content %}
+        </main>
+
+        <aside class="site-sidebar w-full lg:w-3/12 pl-10">
+            <img src="/static/avatar.jpg" class="mb-5" />
+            <p>This is some text text.</p>
+        </aside>
+    </div>
+
+</body>
+</html>
+
