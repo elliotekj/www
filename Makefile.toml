@@ -12,7 +12,16 @@ args = ["-r", "-i", "content/assets", "-s", "SIGKILL", "cargo make files_changed
 
 [tasks.compile_sass]
 script = ['''
-echo -e "$(cat src/styles.frontmatter)\n$(sass src/styles.scss)" > content/assets/styles.css
+tailwind build src/styles.css --output content/assets/styles.css
+echo -e "$(cat src/styles.frontmatter)\n$(cat content/assets/styles.css)" > content/assets/styles.css
+''']
+
+[tasks.compile_sass_prod]
+script = ['''
+tailwind build src/styles.css --output content/assets/styles.css
+purgecss --css content/assets/**/*.css --content .rendered/**/*.html --out content/assets/
+csso content/assets/styles.css --output content/assets/styles.css
+echo -e "$(cat src/styles.frontmatter)\n$(cat content/assets/styles.css)" > content/assets/styles.css
 ''']
 
 [tasks.start_server]

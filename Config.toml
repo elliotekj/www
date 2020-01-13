@@ -1,4 +1,5 @@
-base = "~/dev/www"
+base_path = "~/dev/www"
+write_to_disk = true
 
 [content]
 path = "content"
