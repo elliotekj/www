@@ -6,6 +6,7 @@ category: Code
 tags:
   - Swift
   - Database
+excerpt: An introduction to SQLite databases on iOS, covering setup, migrations, and basic querying.
 ---
 
 Designed to provide local data storage for individual applications and devices,

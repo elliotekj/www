@@ -5,6 +5,7 @@ slug: "/2017/12/13/the-ux-of-vague-user-input-and-educated-guesses"
 category: Design
 tags:
   - UX
+excerpt: Some thoughts on how the Echo’s reminder functionality could be improved.
 ---
 
 I got an Amazon Echo Dot a couple of months ago — my first voice assistant and the only one I’ve used. I’ve found it to be largely underwhelming on the software front. Maybe I just set my expectations too high because of all the wonderful things the people I follow have been saying about it since its release. The following is neither a rant about nor a full review of the software. It is merely my thoughts on how a specific though frequently used bit of functionality could be improved.

@@ -6,6 +6,7 @@ category: Code
 tags:
   - Swift
   - Database
+excerpt: A follow-on from “Getting Started with GRDB” that covers value observation, table relationships, and custom types.
 ---
 
 In part 1: ["Getting started with
