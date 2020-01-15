@@ -74,7 +74,6 @@ extension Project: TableRecord, EncodableRecord {
         return request(for: Project.tasks)
     }
 
-
     static func drafts() -> QueryInterfaceRequest<Project> {
         return Project.filter(Columns.isDraft == true)
     }
