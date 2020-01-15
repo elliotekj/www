@@ -3,21 +3,26 @@ write_to_disk = true
 
 [content]
 path = "content"
+syntax_theme = "Solarized (dark)"
 
 [[content.page_types]]
 type = "post"
 path = "posts"
-default_template = "blogpost.html"
+default_layout = "blogpost.html"
 
 [[content.page_types]]
 type = "page"
 path = "pages"
-default_template = "raw.html"
+default_layout = "base.html"
 
 [[content.page_types]]
 type = "asset"
 path = "assets"
-default_template = "raw.html"
+default_layout = "raw.html"
 
 [templates]
 path = "templates"
+
+[templates.globals]
+base_url = "http://127.0.0.1:8765"
+title = "Elliot Jackson: Freelance software designer and developer"

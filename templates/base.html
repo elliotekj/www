@@ -1,14 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-    <title>{% block title %}{% endblock title %} - Elliot</title>
-    <link rel="stylesheet" href="/assets/styles.css">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}{% endblock title %}
+        {% if page.slug != "/" %}&nbsp;|&nbsp;{% endif %}
+        {{ globals.title }}
+    </title>
+
+    <link rel="alternate" type="application/rss+xml" title="{{ globals.title }}" href="/rss.xml">
+    <link rel="stylesheet" href="{{ globals.base_url }}/assets/styles.css">
+
+    {% block meta %}{% endblock meta %}
 </head>
 <body>
-    <header class="site-header w-full border-b border-gray-900">
+    <header class="w-full border-b border-gray-900">
         <div class="container flex items-center justify-between mx-auto py-4">
-            <h2 class="text-xl text-white font-semibold">Elliot Jackson</h2>
+            <h2 class="text-xl text-white font-semibold mb-0"><a href="/">Elliot Jackson</a></h2>
 
             <nav>
                 <ul class="flex font-mono text-sm">
@@ -21,7 +32,7 @@
     </header>
 
     <div class="container flex mx-auto mt-20">
-        <main class="site-main w-full lg:w-9/12 border-r border-gray-900 pr-10">
+        <main class="site-main w-full lg:w-9/12 border-r border-b border-gray-900 pr-10 pb-20">
             {% block content %}
             {{ page.content | safe }}
             {% endblock content %}
@@ -33,6 +44,9 @@
         </aside>
     </div>
 
+    <footer>
+
+    </footer>
 </body>
 </html>
 

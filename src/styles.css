@@ -8,18 +8,121 @@ body {
 }
 
 .site-main a, .site-main a:visited {
-    color: theme('colors.white');
-    border-bottom: 1px solid theme('colors.teal.400');
+    color: theme('colors.teal.400');
+    text-decoration: underline;
 }
 
 .site-main a:hover {
-    color: theme('colors.teal.400');
+    color: theme('colors.teal.600');
 }
 
-.ft-heading:after {
+hr {
+    height: 4px;
+    background: theme('colors.gray.900');
+    width: 100px;
+    margin: theme('spacing.5') 0;
+    border: none;
+}
+
+.site-main > * + *, .pad-children > * + * {
+    margin-top: theme('spacing.5');
+}
+
+.site-main h1 {
+    font-size: theme('fontSize.3xl');
+    color: theme('colors.white');
+    font-weight: theme('fontWeight.semibold');
+    margin-bottom: theme('spacing.6');
+}
+
+.site-main h1:after {
     content: "";
     border-bottom: 4px solid theme('colors.teal.400');
     width: 100px;
     display: block;
     margin-top: 4px;
+}
+
+.site-main h2, .site-main h3 {
+    font-size: theme('fontSize.2xl');
+    color: theme('colors.white');
+    font-weight: theme('fontWeight.semibold');
+}
+
+.site-main ul {
+    margin-left: theme('spacing.10');
+    list-style-type: circle;
+}
+
+.site-main ol {
+    margin-left: theme('spacing.10');
+    list-style-type: decimal;
+}
+
+.site-main li {
+    margin-bottom: theme('spacing.1');
+}
+
+.pre-filename {
+    font-family: theme('fontFamily.mono');
+    font-size: theme('fontSize.xs');
+    color: theme('colors.white');
+    display: inline-block;
+}
+
+.pre-filename:after {
+    content: "↓";
+    margin-left: theme('spacing.1');
+    font-size: theme('fontSize.base');
+    color: theme('colors.teal.400');
+}
+
+.pre-filename + pre {
+    margin-top: 0 !important;
+}
+
+pre {
+    width: 100%;
+    overflow-x: auto;
+    background: theme('colors.codeblock');
+    padding: theme('spacing.4') 0;
+    color: #839496;
+}
+
+pre code {
+    font-family: theme('fontFamily.mono');
+    font-size: theme('fontSize.xs');
+}
+
+pre .line {
+    padding: 0 theme('spacing.5');
+}
+
+pre .line-highlight {
+    background: theme('colors.teal.900');
+    position: relative;
+    color: theme('colors.white') !important;
+}
+
+pre .line-highlight:before {
+    content: "";
+    background: theme('colors.teal.400');
+    width: 4px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    display: inline-block;
+    position: absolute;
+}
+
+pre .line-nb {
+    color: theme('colors.grey.400');
+    display: inline-block;
+    padding: 0 theme('spacing.5') 0 0;
+    text-align: center;
+    width: 2rem;
+}
+
+code {
+    font-size: theme('fontSize.base');
 }

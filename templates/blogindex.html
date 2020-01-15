@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}
+Blog
+{% endblock title %}
+
+{% block content %}
+{% set sorted_posts = pages | filter(attribute="page_type", value="post") | sort(attribute="fm.date") | reverse  %}
+
+<div class="mb-10">
+    <h1>Latest Posts</h1>
+
+    <dl>
+    {% for post in sorted_posts %}
+        <dt class="mb-1"><a href="{{ post.slug }}">{{ post.fm.title }}</a></dt>
+
+        <dd class="ml-5 mb-5">
+            <span class="font-mono text-sm inline-block pr-2">{{ post.fm.date | date(format="%d-%m-%Y") }}</span>
+            {{ post.fm.excerpt }}
+        </dd>
+
+        {% if loop.index == 3 %}{% break %}{% endif %}
+    {% endfor %}
+    </dl>
+</div>
+
+<div class="pad-children">
+    <h2>Archive</h2>
+
+    <ul>
+    {% for post in sorted_posts %}
+        {% if loop.index <= 3 %}{% continue %}{% endif %}
+
+        <li>
+            <span class="font-mono text-sm inline-block pr-2">{{ post.fm.date | date(format="%d-%m-%Y") }}</span>
+            <a href="{{ post.slug }}">{{ post.fm.title }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+{% endblock content %}
