@@ -2,18 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * Global
+ */
+
 body {
     background: theme('colors.black');
     color: theme('colors.gray.400');
-}
-
-.site-main a, .site-main a:visited {
-    color: theme('colors.teal.400');
-    text-decoration: underline;
-}
-
-.site-main a:hover {
-    color: theme('colors.teal.600');
 }
 
 hr {
@@ -24,7 +19,27 @@ hr {
     border: none;
 }
 
-.site-main > * + *, .pad-children > * + * {
+blockquote {
+    border-left: 4px solid theme('colors.teal.400');
+    padding-left: theme('spacing.5');
+}
+
+/*
+ * Generated content
+ */
+
+.site-main a, .site-main a:visited {
+    color: theme('colors.teal.400');
+    text-decoration: underline;
+}
+
+.site-main a:hover {
+    color: theme('colors.teal.600');
+}
+
+.site-main > * + *,
+blockquote * + *,
+.pad-children > * + * {
     margin-top: theme('spacing.5');
 }
 
@@ -62,6 +77,10 @@ hr {
 .site-main li {
     margin-bottom: theme('spacing.1');
 }
+
+/*
+ * Code
+ */
 
 .pre-filename {
     font-family: theme('fontFamily.mono');
