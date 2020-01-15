@@ -57,7 +57,7 @@ We went through what most of the above does in part 1; the interesting bit is li
 Now that the required migrations have been done, create a `Task` struct for the newly created table (go back and reference part 1 if you're unsure how to do so). Once you've done that, we can move on to updating our `Project` struct.
 
 
-```swift filename=Models/Project.swift highlight=1,2,13,14,15
+```swift filename=Models/Project.swift highlight=1,13,14,15
 extension Project: TableRecord, EncodableRecord {
 
     static let tasks = hasMany(Task.self)
