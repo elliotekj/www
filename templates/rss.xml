@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+  <channel>
+    <title>{{ globals.title }}</title>
+    <description>{{ globals.desc }}</description>
+    <link>{{ globals.base_url }}</link>
+    <category domain="{{ globals.base_url }}">Computers/Software/Internet/Web development/Programming</category>
+    <copyright>Copyright 2020 Elliot Jackson</copyright>
+    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+    <language>en-gb</language>
+    <lastBuildDate>{{ now() | date(format="%+") }}</lastBuildDate>
+    <managingEditor>elliot@elliotekj.com</managingEditor>
+    <webMaster>elliot@elliotekj.com</webMaster>
+    <generator>thea</generator>
+    {% set sorted_posts = pages | filter(attribute="page_type", value="post") | sort(attribute="fm.date") | reverse  %}
+    {% for post in sorted_posts %}
+    <item>
+      <title>{{ post.fm.title }}</title>
+      <description>{{ post.content }}</description>
+      <link>{{ globals.base_url }}{{ post.slug }}</link>
+      <pubDate>{{ post.fm.date | date(format="%+") }}</pubDate>
+    </item>
+    {% if loop.index == 10 %}{% break %}{% endif %}
+    {% endfor %}
+  </channel>
+</rss>

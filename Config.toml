@@ -26,3 +26,4 @@ path = "templates"
 [templates.globals]
 base_url = "http://127.0.0.1:8765"
 title = "Elliot Jackson: Freelance software designer and developer"
+desc = "I'm Elliot Jackson; I build software for a living and write about Swift, Rust, and other things."
