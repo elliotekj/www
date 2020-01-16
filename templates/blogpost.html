@@ -46,4 +46,10 @@
 {% block content %}
 <h1>{{ page.fm.title }}</h1>
 {{ page.content | safe }}
+
+<ul class="social-buttons">
+    <li><a href="https://elliotekj.substack.com" class="button button-teal">Subscribe via Newsletter</a></li>
+    <li><a href="/rss.xml" class="button button-orange">Subscribe via RSS</a></li>
+    <li><a href="https://dev.to/elliotekj" class="button button-purple">Follow on dev.to</a></li>
+</ul>
 {% endblock content %}
