@@ -138,6 +138,14 @@ a.button-purple:hover {
     margin-top: theme('spacing.3');
 }
 
+.site-sidebar a {
+    color: theme('colors.gray.400');
+}
+
+.site-sidebar a:hover {
+    color: theme('colors.white');
+}
+
 .site-sidebar .small-title {
     display: block;
     font-family: theme('fontFamily.mono');
@@ -148,6 +156,14 @@ a.button-purple:hover {
     border-top: 1px solid theme('colors.gray.900');
     margin-top: theme('spacing.10');
     padding-top: theme('spacing.10');
+}
+
+.site-footer a {
+    color: theme('colors.white');
+}
+
+.site-footer a:hover {
+    color: theme('colors.teal.400');
 }
 
 /*
