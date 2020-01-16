@@ -12,9 +12,9 @@ Blog
 
     <dl>
     {% for post in sorted_posts %}
-        <dt class="mb-1"><a href="{{ post.slug }}">{{ post.fm.title }}</a></dt>
+        <dt><a href="{{ post.slug }}">{{ post.fm.title }}</a></dt>
 
-        <dd class="ml-5 mb-5">
+        <dd>
             <span class="font-mono text-sm inline-block pr-2">{{ post.fm.date | date(format="%d-%m-%Y") }}</span>
             {{ post.fm.excerpt }}
         </dd>

@@ -16,8 +16,8 @@
         {% set sorted_posts = pages | filter(attribute="page_type", value="post") | sort(attribute="fm.date") | reverse  %}
 
         {% for post in sorted_posts %}
-            <dt class="mb-1 mt-5"><a href="{{ post.slug }}">{{ post.fm.title }}</a></dt>
-            <dd class="ml-5">
+            <dt><a href="{{ post.slug }}">{{ post.fm.title }}</a></dt>
+            <dd>
                 <span class="font-mono text-sm inline-block pr-2">{{ post.fm.date | date(format="%d-%m-%Y") }}</span>
                 {{ post.fm.excerpt }}
             </dd>

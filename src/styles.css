@@ -24,6 +24,15 @@ blockquote {
     padding-left: theme('spacing.5');
 }
 
+dt {
+    margin-bottom: theme('spacing.1');
+    margin-top: theme('spacing.5');
+}
+
+dd {
+    margin-left: theme('spacing.5');
+}
+
 /*
  * Generated content
  */
