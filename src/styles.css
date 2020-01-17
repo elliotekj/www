@@ -7,69 +7,66 @@
  */
 
 body {
-    background: theme('colors.black');
-    color: theme('colors.gray.400');
+    @apply bg-black;
+    @apply text-gray-400;;
 }
 
 hr {
-    background: theme('colors.gray.900');
+    @apply bg-gray-900;
+    @apply my-5;
     border: none;
     height: 4px;
-    margin: theme('spacing.5') 0;
     width: 100px;
 }
 
 blockquote {
-    border-left: 4px solid theme('colors.teal.400');
-    padding-left: theme('spacing.5');
+    @apply border-l-4 border-teal-400;
+    @apply pl-5;
 }
 
 dt {
-    margin-bottom: theme('spacing.1');
-    margin-top: theme('spacing.5');
+    @apply mb-1 mt-5;
 }
 
 dd {
-    margin-left: theme('spacing.5');
+    @apply ml-5;
 }
 
 img {
-    display: block;
+    @apply block;
     max-width: 100%;
 }
 
 a.button {
-    border-radius: theme('borderRadius.default');
-    color: theme('colors.white') !important;
-    font-family: theme('fontFamily.mono');
-    font-size: theme('fontSize.sm');
-    font-weight: theme('fontWeight.semibold');
-    padding: theme('spacing.2') theme('spacing.4');
-    text-decoration: none !important;
+    @apply font-mono font-semibold text-sm;
+    @apply no-underline !important;
+    @apply py-2 px-4;
+    @apply rounded;
+    @apply text-white !important;
 }
 
 a.button-teal {
-    background: theme('colors.teal.400');
+    @apply bg-teal-400;
 }
 
 a.button-teal:hover {
-    background: theme('colors.teal.500');
+    @apply bg-teal-500;
 }
 
 a.button-orange {
-    background: theme('colors.orange.400');
+    @apply bg-orange-400;
 }
 
 a.button-orange:hover {
-    background: theme('colors.orange.500');
+    @apply bg-orange-500;
 }
 
 a.button-purple {
-    background: theme('colors.purple.400');
+    @apply bg-purple-400;
 }
 
 a.button-purple:hover {
-    background: theme('colors.purple.500');
+    @apply bg-purple-500;
 }
 
 /*
@@ -77,40 +74,39 @@ a.button-purple:hover {
  */
 
 .site-header {
-    border-bottom: 1px solid theme('colors.gray.900');
-    width: 100%;
+    @apply border-b border-gray-900;
+    @apply w-full;
 }
 
 .site-header .container {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
-    padding: theme('spacing.4') 0;
+    @apply flex items-center justify-between;
+    @apply mx-auto py-4;
 }
 
 .site-header .logo {
-    font-size: theme('fontSize.xl');
-    font-weight: theme('fontWeight.semibold');
-    margin-bottom: theme('spacing.0');
+    @apply font-semibold text-xl;
+    @apply mb-0;
+}
+
+.site-header .logo a {
+    @apply text-white;
 }
 
 .site-header ul {
-    display: flex;
-    font-family: theme('fontFamily.mono');
-    font-size: theme('fontSize.sm');
+    @apply flex;
+    @apply font-mono text-sm;
 }
 
 .site-header li {
-    margin-left: theme('spacing.5');
+    @apply ml-5;
 }
 
 .site-header li a {
-    color: theme('colors.gray.400');
+    @apply text-gray-400;
 }
 
 .site-header li a:hover {
-    color: theme('colors.white');
+    @apply text-white;
 }
 
 /*
@@ -118,52 +114,38 @@ a.button-purple:hover {
  */
 
 .site-sidebar .bio {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    flex: theme('flex.1');
-    font-family: theme('fontFamily.mono');
-    font-size: theme('fontSize.xs');
-    margin-bottom: theme('spacing.10');
+    @apply flex flex-row items-center;
+    @apply font-mono text-xs;
+    @apply mb-10;
 }
 
 .site-sidebar img {
-    border-radius: theme('borderRadius.default');
-    display: inline-block;
-    margin-right: theme('spacing.3');
+    @apply inline-block;
+    @apply mr-3;
+    @apply rounded;
     max-width: 48px;
 }
 
 .site-sidebar .social li + li {
-    margin-top: theme('spacing.3');
+    @apply mt-3;
 }
 
 .site-sidebar a {
-    color: theme('colors.gray.400');
+    @apply text-gray-400;
 }
 
 .site-sidebar a:hover {
-    color: theme('colors.white');
+    @apply text-white;
 }
 
 .site-sidebar .small-title {
-    display: block;
-    font-family: theme('fontFamily.mono');
-    font-size: theme('fontSize.xs');
+    @apply block;
+    @apply font-mono text-xs;
 }
 
 .site-sidebar .docs {
-    border-top: 1px solid theme('colors.gray.900');
-    margin-top: theme('spacing.10');
-    padding-top: theme('spacing.10');
-}
-
-.site-footer a {
-    color: theme('colors.white');
-}
-
-.site-footer a:hover {
-    color: theme('colors.teal.400');
+    @apply border-t border-gray-900;
+    @apply mt-10 pt-10;
 }
 
 /*
@@ -171,77 +153,87 @@ a.button-purple:hover {
  */
 
 .site-footer .container {
-    color: theme('colors.gray.400');
-    font-family: theme('fontFamily.mono');
-    font-size: theme('fontSize.sm');
-    margin: 0 auto;
-    padding: theme('spacing.10') 0;
+    @apply font-mono text-sm text-gray-400;
+    @apply mx-auto py-10;
+}
+
+.site-footer a {
+    @apply text-white;
+}
+
+.site-footer a:hover {
+    @apply text-teal-400;
 }
 
 /*
  * Generated content
  */
 
+.site-main {
+    @apply border-r border-b border-gray-900;
+    @apply pr-10 pb-20;
+    @apply w-full;
+}
+
+@screen lg {
+    .site-main {
+        @apply w-9/12;
+    }
+}
+
 .site-main a, .site-main a:visited {
-    color: theme('colors.teal.400');
-    text-decoration: underline;
+    @apply text-teal-400 no-underline;
 }
 
 .site-main a:hover {
-    color: theme('colors.teal.600');
+    @apply text-teal-600;
 }
 
 .site-main > * + *,
 blockquote * + *,
 .pad-children > * + * {
-    margin-top: theme('spacing.5');
+    @apply mt-5;
 }
 
 .site-main h1 {
-    color: theme('colors.white');
-    font-size: theme('fontSize.3xl');
-    font-weight: theme('fontWeight.semibold');
-    margin-bottom: theme('spacing.6');
+    @apply font-semibold text-3xl text-white;
+    @apply mb-6;
 }
 
 .site-main h1:after {
-    border-bottom: 4px solid theme('colors.teal.400');
+    @apply block;
+    @apply border-b-4 border-teal-400;
     content: "";
-    display: block;
     margin-top: 4px;
     width: 100px;
 }
 
 .site-main h2, .site-main h3 {
-    color: theme('colors.white');
-    font-size: theme('fontSize.2xl');
-    font-weight: theme('fontWeight.semibold');
+    @apply font-semibold text-2xl text-white;
 }
 
 .site-main ul {
+    @apply ml-10;
     list-style-type: circle;
-    margin-left: theme('spacing.10');
 }
 
 .site-main ol {
     list-style-type: decimal;
-    margin-left: theme('spacing.10');
+    @apply ml-10;
 }
 
 .site-main li {
-    margin-bottom: theme('spacing.1');
+    @apply mb-1;
 }
 
 .site-main .social-buttons {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    margin: 0;
-    padding-top: theme('spacing.16');
+    @apply flex justify-center;
+    @apply list-none;
+    @apply m-0 pt-16;
 }
 
 .site-main .social-buttons li {
-    margin: 0 theme('spacing.2');
+    @apply mx-2;
 }
 
 /*
@@ -249,65 +241,58 @@ blockquote * + *,
  */
 
 .pre-filename {
-    color: theme('colors.white');
-    display: inline-block;
-    font-family: theme('fontFamily.mono');
-    font-size: theme('fontSize.xs');
+    @apply font-mono text-xs text-white;
+    @apply inline-block;
 }
 
 .pre-filename:after {
-    color: theme('colors.teal.400');
+    @apply ml-1;
+    @apply text-base text-teal-400;
     content: "↓";
-    font-size: theme('fontSize.base');
-    margin-left: theme('spacing.1');
 }
 
 .pre-filename + pre {
-    margin-top: 0 !important;
+    @apply mt-0 !important;
 }
 
 pre {
+    @apply w-full py-4 overflow-x-auto;
     background: theme('colors.codeblock');
     color: #839496;
-    overflow-x: auto;
-    padding: theme('spacing.4') 0;
-    width: 100%;
 }
 
 pre code {
-    font-family: theme('fontFamily.mono');
-    font-size: theme('fontSize.xs');
+    @apply font-mono text-xs;
 }
 
 pre .line {
-    padding: 0 theme('spacing.5');
+    @apply px-5;
 }
 
 pre .line-highlight {
-    background: theme('colors.teal.900');
-    color: theme('colors.white') !important;
-    position: relative;
+    @apply bg-teal-900 text-white;
+    @apply relative;
 }
 
 pre .line-highlight:before {
-    background: theme('colors.teal.400');
-    bottom: 0;
+    @apply absolute inline-block;
+    @apply bg-teal-400;
+    @apply top-0 bottom-0 left-0;
     content: "";
-    display: inline-block;
-    left: 0;
-    position: absolute;
-    top: 0;
     width: 4px;
 }
 
 pre .line-nb {
-    color: theme('colors.grey.400');
-    display: inline-block;
-    padding: 0 theme('spacing.5') 0 0;
-    text-align: center;
+    @apply pr-5 inline-block;
+    @apply text-center;
+    color: #839496;
     width: 2rem;
 }
 
+pre .line-highlight .line-nb {
+    @apply text-white;
+}
+
 code {
-    font-size: theme('fontSize.base');
+    @apply text-base;
 }
