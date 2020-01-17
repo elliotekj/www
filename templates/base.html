@@ -22,24 +22,27 @@
             <h2 class="logo"><a href="/">Elliot Jackson</a></h2>
 
             <nav>
-                <ul>
+                <ul class="links">
                     <li><a href="/blog">Blog</a></li>
                     <li><a href="/opensource">Open Source</a></li>
                     <li><a href="/about">About</a></li>
+                </ul>
+
+                <ul class="hire">
                     <li><a href="/hire" class="button button-teal">Hire Me</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div class="container flex mx-auto mt-20">
-        <main class="site-main w-full lg:w-9/12 border-r border-b border-gray-900 pr-10 pb-20">
+    <div class="site-main container">
+        <main class="site-content">
             {% block content %}
             {{ page.content | safe }}
             {% endblock content %}
         </main>
 
-        <aside class="site-sidebar w-full lg:w-3/12 pl-10">
+        <aside class="site-sidebar">
             <div class="bio">
                 <img src="/static/avatar.jpg" />
                 <p>Hi, I'm Elliot. I build software.</p>
