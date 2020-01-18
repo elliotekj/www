@@ -11,8 +11,17 @@
         {{ globals.title }}
     </title>
 
+    <meta name="description" content="{{ globals.desc }}">
+
     <link rel="alternate" type="application/rss+xml" title="{{ globals.title }}" href="/rss.xml">
     <link rel="stylesheet" href="{{ globals.base_url }}/assets/styles.css">
+
+    <link rel="apple-touch-icon" sizes="192x192" href="{{ globals.base_url }}/static/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="{{ globals.base_url }}/static/android-chrome-512x512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ globals.base_url }}/static/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ globals.base_url }}/static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ globals.base_url }}/static/favicon-16x16.png">
+    <meta name="image" content="{{ globals.base_url }}/static/banner.png">
 
     {% block meta %}{% endblock meta %}
 </head>
