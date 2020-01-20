@@ -1,9 +1,5 @@
 {% extends "base.html" %}
 
-{% block title %}
-Blog
-{% endblock title %}
-
 {% block content %}
 {% set sorted_posts = pages | filter(attribute="page_type", value="post") | sort(attribute="fm.date") | reverse  %}
 

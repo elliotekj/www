@@ -1,5 +1,6 @@
 ---
 slug: "/hire"
+title: Hire Me
 ---
 
 # Hire Me
