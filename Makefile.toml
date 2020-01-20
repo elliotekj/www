@@ -13,7 +13,7 @@ args = ["-r", "-i", "content/assets", "-i", "logs", "-s", "SIGKILL", "cargo make
 [tasks.compile_sass]
 script = ['''
 tailwind build src/styles.css --output content/assets/styles.css
-purgecss --css content/assets/**/*.css --content .rendered/**/*.html --out content/assets/
+purgecss --config purgecss.config.js --out content/assets/
 csso content/assets/styles.css --output content/assets/styles.css
 echo -e "$(cat src/styles.frontmatter)\n$(cat content/assets/styles.css)" > content/assets/styles.css
 ''']
