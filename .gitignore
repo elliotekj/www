@@ -1,2 +1,4 @@
 .rendered/
+logs/*
+!.gitkeep
 content/assets/
