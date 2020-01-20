@@ -20,6 +20,7 @@ echo -e "$(cat src/styles.frontmatter)\n$(cat content/assets/styles.css)" > cont
 
 [tasks.start_server]
 command = "${THEA_PATH}/thea"
+args = ["--dev"]
 
 [tasks.files_changed]
 dependencies = ["compile_sass", "start_server"]
