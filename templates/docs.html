@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ page.fm.title }}
+{% endblock title %}
+
+{% block content %}
+{{ page.content | safe }}
+{% endblock content %}
+
