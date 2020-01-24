@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ page.fm.title }}
+{% endblock title %}
+
+{% block content %}
+<div class="docs-header">
+    <h1>{{ page.fm.title }}</h1>
+    <a class="button button-teal" href="https://github.com/elliotekj/thea">Source on GitHub</a>
+</div>
+
+{{ page.content | safe }}
+{% endblock content %}
+
