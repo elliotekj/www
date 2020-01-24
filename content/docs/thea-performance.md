@@ -1,7 +1,8 @@
 ---
 slug: "/docs/thea/performance"
-title: Docs » Thea » Performance
+title: Thea » Performance
 layout: thea-docs.html
+repo_path: thea-performance.md
 ---
 
 As stated, optimum server to client performance is Thea's primary goal and it employs a number of strategies to achieve that goal.

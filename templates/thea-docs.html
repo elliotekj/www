@@ -7,7 +7,21 @@
 {% block content %}
 <div class="docs-header">
     <h1>{{ page.fm.title }}</h1>
-    <a class="button button-teal" href="https://github.com/elliotekj/thea">Source on GitHub</a>
+
+    <div class="buttons">
+        <a class="button button-purple" href="https://github.com/elliotekj/elliotekj.com/blob/master/content/docs/{{ page.fm.repo_path }}">Edit Page</a>
+        <a class="button button-teal" href="https://github.com/elliotekj/thea">Thea on GitHub</a>
+    </div>
+</div>
+
+<div class="alert" role="alert">
+  <div class="flex">
+    <div class="alert-icon"><svg class="alert-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/></svg></div>
+    <div>
+      <p class="font-bold">Thea's docs are still a work in progress</p>
+      <p class="text-sm">Please file an issue or create a pull request if something's missing or broken.</p>
+    </div>
+  </div>
 </div>
 
 {{ page.content | safe }}

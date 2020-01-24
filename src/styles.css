@@ -401,13 +401,43 @@ code {
 }
 
 /*
+ * Alerts
+ */
+
+.alert {
+    @apply bg-teal-100 border-t-4 border-teal-400 rounded-b;
+    @apply px-4 py-3;
+    @apply text-teal-900;
+}
+
+.alert-icon {
+    @apply py-1;
+}
+
+.alert-svg {
+    @apply fill-current text-teal-700;
+    @apply h-6 w-6 mr-4;
+}
+
+/*
  * Docs
  */
 
+
 .docs-header {
-    @apply flex justify-between;
+    @apply flex flex-col items-start;
 }
 
-.docs-header .button {
-    @apply flex-none;
+@screen lg {
+    .docs-header {
+        @apply flex-row justify-between items-start;
+    }
+}
+
+.docs-header .buttons {
+    @apply flex;
+}
+
+.docs-header .buttons a + a {
+    @apply ml-3;
 }

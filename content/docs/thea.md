@@ -1,7 +1,8 @@
 ---
 slug: "/docs/thea"
-title: Docs » Thea
+title: Thea's Docs
 layout: thea-docs.html
+repo_path: thea.md
 ---
 
 Thea is a from-memory website generator and server designed to get the requested resource from server to client as quickly as possible, with as little setup as possible. Much like a static site generator, Thea takes HTML / Markdown / etc files and renders pages from them via liquid-based templates. Where a static site generator would write those pages to HTML files, Thea keeps them in, and serves them from, memory.
