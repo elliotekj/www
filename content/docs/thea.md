@@ -15,4 +15,5 @@ Design goals (in order):
 
 ## Documentation
 
+* [Quickstart](/docs/thea/quickstart)
 * [Performance](/docs/thea/performance)
