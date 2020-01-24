@@ -1,23 +1,24 @@
 [env]
 THEA_PATH = "${HOME}/dev/thea/target/debug"
 
-[tasks.default]
-alias = "dev"
-
-[tasks.dev]
-run_task = { name = ["watch_css", "start_server"], parallel = true }
-
 [tasks.watch_css]
-install_crate = "watchexec"
 command = "watchexec"
 args = ["-w", "src/", "cargo make compile_css"]
 
 [tasks.compile_css]
+dependencies = ["run_tailwind", "run_purgecss", "merge_css_frontmatter"]
+
+[tasks.run_tailwind]
+command = "tailwind"
+args = ["build", "src/styles.css", "--output", "content/assets/styles.css"]
+
+[tasks.run_purgecss]
+command = "purgecss"
+args = ["--config", "purgecss.config.js", "--output", "content/assets/"]
+
+[tasks.merge_css_frontmatter]
 script = ['''
-tailwind build src/styles.css --output content/assets/styles.css
-purgecss --config purgecss.config.js --out content/assets/
-csso content/assets/styles.css --output content/assets/styles.css
-echo -e "$(cat src/styles.frontmatter)\n$(cat content/assets/styles.css)" > content/assets/styles.css
+cat src/styles.frontmatter | cat - content/assets/styles.css > temp && rm content/assets/styles.css && mv temp content/assets/styles.css
 ''']
 
 [tasks.start_server]
