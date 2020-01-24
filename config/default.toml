@@ -1,4 +1,3 @@
-base_path = "~/dev/www"
 write_to_disk = true
 
 [content]
