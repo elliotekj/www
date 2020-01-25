@@ -1,4 +1,4 @@
 .rendered/
 logs/*
+content/assets/*
 !.gitkeep
-content/assets/
