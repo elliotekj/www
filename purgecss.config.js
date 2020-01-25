@@ -1,5 +1,5 @@
 module.exports = {
     content: ['.rendered/**/*.html'],
-    css: ['content/assets/*.css'],
+    css: ['src/tmp.css'],
     whitelist: ['pre']
 }

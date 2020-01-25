@@ -10,19 +10,21 @@ dependencies = ["run_tailwind", "run_purgecss", "run_csso", "merge_css_frontmatt
 
 [tasks.run_tailwind]
 command = "tailwind"
-args = ["build", "src/styles.css", "--output", "content/assets/styles.css"]
+args = ["build", "src/styles.css", "--output", "src/tmp.css"]
 
 [tasks.run_purgecss]
 command = "purgecss"
-args = ["--config", "purgecss.config.js", "--output", "content/assets/"]
+args = ["--config", "purgecss.config.js", "--output", "src/"]
 
 [tasks.run_csso]
 command = "csso"
-args = ["content/assets/styles.css", "--output", "content/assets/styles.css"]
+args = ["src/tmp.css", "--output", "src/tmp.css"]
 
 [tasks.merge_css_frontmatter]
 script = ['''
-cat src/styles.frontmatter | cat - content/assets/styles.css > temp && rm content/assets/styles.css && mv temp content/assets/styles.css
+rm content/assets/styles.css
+cat src/styles.frontmatter | cat - src/tmp.css > content/assets/styles.css
+rm src/tmp.css
 ''']
 
 [tasks.start_server]
