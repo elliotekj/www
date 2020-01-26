@@ -17,5 +17,6 @@ Design goals (in order):
 
 * [Quickstart](/docs/thea/quickstart)
 * [Install & Update](/docs/thea/install)
+* [In-Depth](/docs/thea/in-depth)
 * [Performance](/docs/thea/performance)
 * [Tips & Tricks](/docs/thea/tips)
