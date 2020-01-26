@@ -84,3 +84,49 @@ base_url = "http://127.0.0.1:8765"
 title = "Elliot Jackson: Freelance software designer and developer"
 desc = "I'm Elliot Jackson; I build software for a living and write about Swift, Rust, and other things."
 ```
+
+## content/
+
+This is where you create the folders for your page types. If my project was using the `default.toml` file above, for example, I'd create the following folders:
+
+* `content/posts/`
+* `content/pages/`
+* `content/spaceships/`
+
+A page type folder can contain any number of files and sub-directories, the only requirement being that **every file must have a slug key in its frontmatter**. Thea does not take directory structure into account when creating and matching slugs. You can create a `content/pages/homepage.md` file with `slug: "/"` frontmatter and when someone visits the root of your domain, that's the page that'll be matched.
+
+Thea assigns the appropriate `Content-Type` header to slugs that have any of the following extensions:
+
+* `.css`
+* `.js`
+* `.json`
+* `.xml`
+* `.txt`
+
+If a slug doesn't have an extension, it'll be assigned a `text/html` `Content-Type` header. Slugs with extensions other than those listed will be assigned a `text/plain` `Content-Type` header.
+
+## static/
+
+This is where you should put image files, videos, etc. The contents of this directory isn't loaded into the HashMap but is accessible via `yourdomain.com/static/your/file/path.png`. Due to the [performance](/docs/thea/performance) strategies applied to pages served from the HashMap, you should favour creating an "assets" page type and keeping JavaScript & CSS files in your `content/` folder.
+
+## templates/
+
+This is where all your layout files live. Thea uses the brilliant [Tera](https://tera.netlify.com) as a template engine and it, along with the global access to your content Thea provides, allows for [some truly powerful templating](https://github.com/elliotekj/thea-starter/blob/master/templates/blogindex.html#L4).
+
+Every template file has access to 3 top-level data sources:
+
+* `{{ page }}` (object) - The current page being rendered.
+* `{{ pages }}` (array[page]) - An unordered array of all of your pages across all page types.
+* `{{ globals }}` (object) - All of the globals defined in your config file(s) under `templates.globals`.
+
+A page consists of 4 key/values:
+
+* `{{ page.page_type }}` (string) - The page type of the page. [Filtering](https://tera.netlify.com/docs/#filter) is the main use-case for this.
+* `{{ page.slug }}` (string) - The page's slug.
+* `{{ page.content }}` (string) - The content of the page.
+* `{{ page.fm }}` (object) - Every key/value in a page's frontmatter (barring `slug` & `layout`) is made available via this object. Some examples might be:
+    * `{{ page.fm.title }}`
+    * `{{ page.fm.date }}`
+    * `{{ page.fm.astronaut }}`
+
+[[Back to docs](/docs/thea)]
