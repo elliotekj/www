@@ -284,22 +284,22 @@ blockquote * + *,
     }
 }
 
-.site-sidebar .social {
+.site-sidebar ul {
     @apply flex flex-row items-center;
 }
 
 @screen md {
-    .site-sidebar .social {
+    .site-sidebar ul {
         @apply flex-col items-start;
     }
 }
 
-.site-sidebar .social li + li {
+.site-sidebar li + li {
     @apply ml-3;
 }
 
 @screen md {
-    .site-sidebar .social li + li {
+    .site-sidebar li + li {
         @apply ml-0 mt-3;
     }
 }
@@ -317,7 +317,7 @@ blockquote * + *,
     @apply font-mono text-xs;
 }
 
-.site-sidebar .docs {
+.site-sidebar ul + ul {
     @apply border-t border-gray-900;
     @apply mt-10 pt-10;
 }
@@ -420,24 +420,23 @@ code {
 }
 
 /*
- * Docs
+ * Headers
  */
 
-
-.docs-header {
+.buttoned-header {
     @apply flex flex-col items-start;
 }
 
 @screen lg {
-    .docs-header {
+    .buttoned-header {
         @apply flex-row justify-between items-start;
     }
 }
 
-.docs-header .buttons {
+.buttoned-header .buttons {
     @apply flex;
 }
 
-.docs-header .buttons a + a {
+.buttoned-header .buttons a + a {
     @apply ml-3;
 }
