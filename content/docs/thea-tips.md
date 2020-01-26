@@ -7,7 +7,7 @@ repo_path: thea-tips.md
 
 ## GoAccess log analysis
 
-This command pipes all GET requests (the only method Thea supports) from your log file into GoAccess. The GoAccess UI will auto-update as new request come it.
+This command pipes all GET requests (the only method Thea supports) from your log file into GoAccess. The GoAccess UI will auto-update as new request come in.
 
 ```shell
 tail -f -n +0 /path/to/logfile | \
