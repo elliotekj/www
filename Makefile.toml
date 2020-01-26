@@ -3,7 +3,7 @@ THEA_PATH = "${HOME}/dev/thea/target/debug"
 
 [tasks.watch_css]
 command = "watchexec"
-args = ["-w", "src/", "cargo make compile_css"]
+args = ["-w", "src/styles.css", "cargo make compile_css"]
 
 [tasks.compile_css]
 dependencies = ["run_tailwind", "run_purgecss", "run_csso", "merge_css_frontmatter"]
