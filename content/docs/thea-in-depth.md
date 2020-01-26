@@ -16,7 +16,7 @@ Thea requires 4 folders at the root of your project (see the [starter kit](https
 
 This is where your configuration file(s) live. The only required file within this directory is `default.toml` which is where you'll define your page types and template globals (see example file below).
 
-You can optionally create a `development.toml` and/or `production.toml` file with environment-specific setting. For example, you might have a `base_url` global that should have a value of `http://127.0.0.1:8765` when you're developing locally but `https://elliotekj.com` in production. Thea determines the environment via the `THEA_ENV` environment variable. If no value is found, Thea will assume it's in a development environment. Acceptable values are:
+You can optionally create a `development.toml` and/or `production.toml` file with environment-specific settings that'll be applied on top of `default.toml`, overwriting any matching keys. For example, you can set a `base_url` key in `templates.globals` to have a value of `http://127.0.0.1:8765` during local development, and a value of `https://elliotekj.com` in production. Thea determines the environment via the `THEA_ENV` environment variable. If no value is found, Thea will assume it's in a development environment. Acceptable values are:
 
 * `THEA_ENV=development`
 * `THEA_ENV=production`
@@ -77,7 +77,7 @@ default_layout = "spaceship.html"
 [templates]
 path = "templates" # [8]
 
-# [9]: templates.globals (default: [], required: false)
+# [9]: templates.globals (default: {}, required: false)
 #      Global key/value pairs that are made available to your template files: {{ globals.base_url }}
 [templates.globals] # [9]
 base_url = "http://127.0.0.1:8765"
