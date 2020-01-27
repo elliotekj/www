@@ -22,7 +22,7 @@ args = ["src/tmp.css", "--output", "src/tmp.css"]
 
 [tasks.merge_css_frontmatter]
 script = ['''
-rm content/assets/styles.css
+rm -f content/assets/styles.css
 cat src/styles.frontmatter | cat - src/tmp.css > content/assets/styles.css
 rm src/tmp.css
 ''']
