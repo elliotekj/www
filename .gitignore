@@ -1,4 +1,4 @@
 .rendered/
 logs/*
-content/assets/*
+content/assets/styles.css
 !.gitkeep
