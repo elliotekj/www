@@ -31,3 +31,18 @@ path = "templates"
 base_url = "http://127.0.0.1:8765"
 title = "Elliot Jackson: Freelance software designer and developer"
 desc = "I'm Elliot Jackson; I build software for a living and write about Swift, Rust, and other things."
+
+[[redirects]]
+type = "permanent"
+from = "/feed.xml"
+to = "/rss.xml"
+
+[[redirects]]
+type = "permanent"
+from = "/index.xml"
+to = "/rss.xml"
+
+[[redirects]]
+type = "permanent"
+from = "/feed"
+to = "/rss.xml"
