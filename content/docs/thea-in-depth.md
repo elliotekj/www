@@ -120,10 +120,11 @@ A page type folder can contain any number of files and sub-directories, the only
 
 Thea assigns the appropriate `Content-Type` header to slugs that have any of the following extensions:
 
+* `.html`
+* `.xml`
 * `.css`
 * `.js`
 * `.json`
-* `.xml`
 * `.txt`
 
 If a slug doesn't have an extension, it'll be assigned a `text/html` `Content-Type` header. Slugs with extensions other than those listed will be assigned a `text/plain` `Content-Type` header.
