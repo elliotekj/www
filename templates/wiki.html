@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+Wiki{% if page.slug != "/wiki" %}&nbsp;» {{ page.fm.title }}{% endif %}
+{% endblock title %}
+
+{% block content %}
+<div class="buttoned-header">
+    <h1>{{ page.fm.title }}</h1>
+
+    <div class="buttons">
+        <a class="button button-purple" href="https://github.com/elliotekj/www/blob/master/content/wiki/{{ page.fm.repo_path }}">Edit Page</a>
+    </div>
+</div>
+
+{{ page.content | safe }}
+{% endblock content %}

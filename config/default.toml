@@ -20,6 +20,11 @@ path = "docs"
 default_layout = "docs.html"
 
 [[content.page_types]]
+type = "wiki"
+path = "wiki"
+default_layout = "wiki.html"
+
+[[content.page_types]]
 type = "asset"
 path = "assets"
 default_layout = "raw.html"
