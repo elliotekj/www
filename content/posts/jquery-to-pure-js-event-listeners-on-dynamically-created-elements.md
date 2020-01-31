@@ -1,7 +1,7 @@
 ---
 title: "jQuery to pure JS: Event listeners on dynamically created elements"
 date: 2016-11-05
-slug: "/2016/11/05/jquery-to-pure-js-event-listeners-on-dynamically-created-elements/"
+slug: "/2016/11/05/jquery-to-pure-js-event-listeners-on-dynamically-created-elements"
 category: Code
 tags:
   - Javascript

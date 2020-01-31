@@ -1,7 +1,7 @@
 ---
 title: "Advice for developers getting into design"
 date: 2015-04-25
-slug: "/2015/04/25/advice-for-developers-getting-into-design/"
+slug: "/2015/04/25/advice-for-developers-getting-into-design"
 category: Code
 tags:
   - Misc

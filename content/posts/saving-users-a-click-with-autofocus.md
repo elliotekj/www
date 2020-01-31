@@ -1,7 +1,7 @@
 ---
 title: "Saving users a click with autofocus"
 date: 2017-04-03
-slug: "/2017/04/03/saving-users-a-click-with-autofocus/"
+slug: "/2017/04/03/saving-users-a-click-with-autofocus"
 category: Code
 tags:
   - UX

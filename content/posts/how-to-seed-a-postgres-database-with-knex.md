@@ -1,7 +1,7 @@
 ---
 title: "How to seed a Postgres database with Knex"
 date: 2017-04-26
-slug: "/2017/04/26/seed-postgres-database-knex/"
+slug: "/2017/04/26/seed-postgres-database-knex"
 category: Code
 tags:
   - Postgres

@@ -1,7 +1,7 @@
 ---
 title: "Now serving over HTTPS and HTTP2"
 date: 2016-12-01
-slug: "/2016/12/01/now-serving-over-https-and-http2/"
+slug: "/2016/12/01/now-serving-over-https-and-http2"
 category: Misc
 tags:
   - Meta

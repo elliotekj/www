@@ -1,7 +1,7 @@
 ---
 title: "Deleting the contents of a directory in Rust"
 date: 2017-03-20
-slug: "/2017/03/20/deleting-the-contents-of-a-directory-in-rust/"
+slug: "/2017/03/20/deleting-the-contents-of-a-directory-in-rust"
 category: Code
 tags:
   - Rust

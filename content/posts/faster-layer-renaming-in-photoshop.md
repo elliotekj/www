@@ -1,7 +1,7 @@
 ---
 title: "Faster layer renaming in Photoshop"
 date: 2015-07-20
-slug: "/2015/07/20/faster-layer-renaming-in-photoshop/"
+slug: "/2015/07/20/faster-layer-renaming-in-photoshop"
 category: Design
 tags:
   - Photoshop

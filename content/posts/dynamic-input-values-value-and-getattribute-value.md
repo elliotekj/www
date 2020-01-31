@@ -1,7 +1,7 @@
 ---
 title: "Dynamic input values, .value and .getAttribute(‘value’)"
 date: 2017-01-13
-slug: "/2017/01/13/dynamic-input-values-value-and-getattributevalue/"
+slug: "/2017/01/13/dynamic-input-values-value-and-getattributevalue"
 category: Code
 tags:
   - Javascript

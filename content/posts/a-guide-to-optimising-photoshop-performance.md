@@ -1,7 +1,7 @@
 ---
 title: "A Guide to Optimising Photoshop Performance"
 date: 2014-04-16
-slug: "/2014/04/16/guide-optimising-photoshop-performance/"
+slug: "/2014/04/16/guide-optimising-photoshop-performance"
 category: Design
 tags:
   - Photoshop

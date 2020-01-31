@@ -1,7 +1,7 @@
 ---
 title: "Search through a full text index of your browsing history with Falcon"
 date: 2016-11-04
-slug: "/2016/11/04/search-through-a-full-text-index-of-your-browsing-history-with-falcon/"
+slug: "/2016/11/04/search-through-a-full-text-index-of-your-browsing-history-with-falcon"
 category: Misc
 tags:
   - Browser Extensions

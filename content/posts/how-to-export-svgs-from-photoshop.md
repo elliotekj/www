@@ -1,7 +1,7 @@
 ---
 title: "How to Export SVGs from Photoshop"
 date: 2014-04-03
-slug: "/2014/04/03/how-to-export-svgs-from-photoshop/"
+slug: "/2014/04/03/how-to-export-svgs-from-photoshop"
 category: Design
 tags:
   - Photoshop

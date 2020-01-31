@@ -1,7 +1,7 @@
 ---
 title: "“Write a Fahrenheit to Celsius converter in Rust” solution"
 date: 2017-01-22
-slug: "/2017/01/22/write-a-fahrenheit-to-celsius-converter-in-rust-solution/"
+slug: "/2017/01/22/write-a-fahrenheit-to-celsius-converter-in-rust-solution"
 category: Code
 tags:
   - Rust

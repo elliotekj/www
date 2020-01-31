@@ -1,7 +1,7 @@
 ---
 title: "The building blocks of a healthy community"
 date: 2017-02-24
-slug: "/2017/02/24/the-building-blocks-of-a-healthy-community/"
+slug: "/2017/02/24/the-building-blocks-of-a-healthy-community"
 category: Code
 tags:
   - Rust

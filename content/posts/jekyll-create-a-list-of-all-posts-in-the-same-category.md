@@ -1,7 +1,7 @@
 ---
 title: "Jekyll: Create a list of all posts in the same category"
 date: 2016-12-05
-slug: "/2016/12/05/jekyll-create-a-list-of-all-posts-in-the-same-category/"
+slug: "/2016/12/05/jekyll-create-a-list-of-all-posts-in-the-same-category"
 category: Code
 tags:
   - Jekyll

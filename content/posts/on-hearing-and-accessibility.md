@@ -1,7 +1,7 @@
 ---
 title: "On hearing and accessibility"
 date: 2015-04-08
-slug: "/2015/04/08/on-hearing-and-accessibility/"
+slug: "/2015/04/08/on-hearing-and-accessibility"
 category: Design
 tags:
   - Accessibility

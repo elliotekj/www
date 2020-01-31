@@ -1,7 +1,7 @@
 ---
 title: "jQuery to pure JS: Target each direct child of an element"
 date: 2016-12-12
-slug: "/2016/12/12/jquery-to-pure-js-target-each-direct-child-of-an-element/"
+slug: "/2016/12/12/jquery-to-pure-js-target-each-direct-child-of-an-element"
 category: Code
 tags:
   - Javascript

@@ -1,7 +1,7 @@
 ---
 title: "How to copy an RGB value in Photoshop"
 date: 2015-03-13
-slug: "/2015/03/13/how-to-copy-an-rgb-value-in-photoshop/"
+slug: "/2015/03/13/how-to-copy-an-rgb-value-in-photoshop"
 category: Design
 tags:
   - Photoshop

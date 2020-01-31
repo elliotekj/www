@@ -1,7 +1,7 @@
 ---
 title: "Screencast #1: How I manage my dotfiles with GitHub"
 date: 2017-01-04
-slug: "/2017/01/04/screencast-1-how-i-manage-my-dotfiles-with-github/"
+slug: "/2017/01/04/screencast-1-how-i-manage-my-dotfiles-with-github"
 category: Code
 tags:
   - Dotfiles

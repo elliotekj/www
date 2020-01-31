@@ -1,7 +1,7 @@
 ---
 title: "My iOS to Mac screenshot workflow"
 date: 2015-07-07
-slug: "/2015/07/07/ios-mac-screenshot-workflow/"
+slug: "/2015/07/07/ios-mac-screenshot-workflow"
 category: Design
 tags:
   - Workflows

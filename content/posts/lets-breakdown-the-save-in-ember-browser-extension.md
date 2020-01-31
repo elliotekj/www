@@ -1,7 +1,7 @@
 ---
 title: "Let’s breakdown the ‘Save in Ember’ browser extension"
 date: 2015-03-19
-slug: "/2015/03/19/lets-breakdown-the-save-in-ember-browser-extension/"
+slug: "/2015/03/19/lets-breakdown-the-save-in-ember-browser-extension"
 category: Code
 tags:
   - Browser Extensions

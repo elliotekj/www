@@ -1,7 +1,7 @@
 ---
 title: "DeltaE 0.2.0"
 date: 2017-06-30
-slug: "/2017/06/30/deltae-0-2-0/"
+slug: "/2017/06/30/deltae-0-2-0"
 category: Code
 tags:
   - DeltaE

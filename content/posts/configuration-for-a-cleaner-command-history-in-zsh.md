@@ -1,7 +1,7 @@
 ---
 title: "Configuration for a cleaner command history in ZSH"
 date: 2016-12-20
-slug: "/2016/12/20/configuration-for-a-cleaner-command-history-in-zsh/"
+slug: "/2016/12/20/configuration-for-a-cleaner-command-history-in-zsh"
 category: Code
 tags:
   - ZSH

@@ -1,7 +1,7 @@
 ---
 title: "How to set up environment varying code in your Rust web app"
 date: 2017-04-14
-slug: "/2017/04/14/set-environment-varying-code-rust-web-app/"
+slug: "/2017/04/14/set-environment-varying-code-rust-web-app"
 category: Code
 tags:
   - Rust

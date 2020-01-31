@@ -1,7 +1,7 @@
 ---
 title: "How to Create High Resolution ICNS Files"
 date: 2014-05-27
-slug: "/2014/05/27/how-to-create-high-resolution-icns-files/"
+slug: "/2014/05/27/how-to-create-high-resolution-icns-files"
 category: Design
 tags:
   - Icons

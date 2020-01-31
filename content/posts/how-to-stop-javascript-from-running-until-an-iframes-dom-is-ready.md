@@ -1,7 +1,7 @@
 ---
 title: "How to stop Javascript from running until an iFrame’s DOM is ready"
 date: 2016-12-06
-slug: "/2016/12/06/how-to-stop-javascript-from-running-until-an-iframes-dom-is-ready/"
+slug: "/2016/12/06/how-to-stop-javascript-from-running-until-an-iframes-dom-is-ready"
 category: Code
 tags:
   - Javascript

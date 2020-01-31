@@ -1,7 +1,7 @@
 ---
 title: "Guard clauses in Javascript"
 date: 2016-12-02
-slug: "/2016/12/02/guard-clauses-in-javascript/"
+slug: "/2016/12/02/guard-clauses-in-javascript"
 category: Code
 tags:
   - Javascript

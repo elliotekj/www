@@ -1,7 +1,7 @@
 ---
 title: "How to switch from rvm to rbenv"
 date: 2016-09-29
-slug: "/2016/09/29/how-to-switch-from-rvm-to-rbenv/"
+slug: "/2016/09/29/how-to-switch-from-rvm-to-rbenv"
 category: Code
 tags:
   - Ruby

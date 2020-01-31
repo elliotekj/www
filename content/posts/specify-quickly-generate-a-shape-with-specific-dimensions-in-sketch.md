@@ -1,7 +1,7 @@
 ---
 title: "Specify: Quickly generate a shape with specific dimensions in Sketch"
 date: 2016-06-10
-slug: "/2016/06/10/specify-quickly-generate-a-shape-with-specific-dimensions-in-sketch/"
+slug: "/2016/06/10/specify-quickly-generate-a-shape-with-specific-dimensions-in-sketch"
 category: Design
 tags:
   - Sketch

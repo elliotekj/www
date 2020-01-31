@@ -1,7 +1,7 @@
 ---
 title: "Better find and replace in Vim"
 date: 2016-08-30
-slug: "/2016/08/30/better-find-and-replace-in-vim/"
+slug: "/2016/08/30/better-find-and-replace-in-vim"
 category: Code
 tags:
   - Vim

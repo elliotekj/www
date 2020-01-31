@@ -1,7 +1,7 @@
 ---
 title: "The end of an era for Land Rover"
 date: 2015-02-19
-slug: "/2015/02/19/end-era-land-rover/"
+slug: "/2015/02/19/end-era-land-rover"
 category: Misc
 tags:
   - Cars

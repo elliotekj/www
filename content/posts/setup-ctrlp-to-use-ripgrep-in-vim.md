@@ -1,7 +1,7 @@
 ---
 title: "Setup CtrlP to use ripgrep in Vim"
 date: 2016-11-22
-slug: "/2016/11/22/setup-ctrlp-to-use-ripgrep-in-vim/"
+slug: "/2016/11/22/setup-ctrlp-to-use-ripgrep-in-vim"
 category: Code
 tags:
   - Vim

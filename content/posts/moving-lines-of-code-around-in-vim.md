@@ -1,7 +1,7 @@
 ---
 title: "Moving lines of code around in Vim"
 date: 2017-01-19
-slug: "/2017/01/19/moving-lines-of-code-around-in-vim/"
+slug: "/2017/01/19/moving-lines-of-code-around-in-vim"
 category: Code
 tags:
   - Vim

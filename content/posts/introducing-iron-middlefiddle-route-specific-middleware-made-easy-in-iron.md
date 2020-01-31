@@ -1,7 +1,7 @@
 ---
 title: "Introducing iron-middlefiddle: Route specific middleware made easy in Iron"
 date: 2017-07-01
-slug: "/2017/07/01/introducing-iron-middlefiddle-route-specific-middleware-made-easy-iron/"
+slug: "/2017/07/01/introducing-iron-middlefiddle-route-specific-middleware-made-easy-iron"
 category: Code
 tags:
   - Rust

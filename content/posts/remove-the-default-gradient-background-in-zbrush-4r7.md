@@ -1,7 +1,7 @@
 ---
 title: "Remove the default gradient background in ZBrush 4R7"
 date: 2015-04-01
-slug: "/2015/04/01/remove-the-default-gradient-background-in-zbrush-4r7/"
+slug: "/2015/04/01/remove-the-default-gradient-background-in-zbrush-4r7"
 category: Design
 tags:
   - ZBrush

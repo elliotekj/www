@@ -1,7 +1,7 @@
 ---
 title: "Screencast #2: A tour of my .vimrc"
 date: 2017-01-26
-slug: "/2017/01/26/screencast-2-a-tour-of-my-vimrc/"
+slug: "/2017/01/26/screencast-2-a-tour-of-my-vimrc"
 category: Code
 tags:
   - Vim

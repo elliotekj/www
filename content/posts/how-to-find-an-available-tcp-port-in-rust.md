@@ -1,7 +1,7 @@
 ---
 title: "How to find an available TCP port in Rust"
 date: 2017-07-25
-slug: "/2017/07/25/find-available-tcp-port-rust/"
+slug: "/2017/07/25/find-available-tcp-port-rust"
 category: Code
 tags:
   - Rust

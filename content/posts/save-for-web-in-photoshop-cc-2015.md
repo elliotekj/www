@@ -1,7 +1,7 @@
 ---
 title: "Save for Web in Photoshop CC 2015"
 date: 2015-06-23
-slug: "/2015/06/23/save-for-web-in-photoshop-cc-2015/"
+slug: "/2015/06/23/save-for-web-in-photoshop-cc-2015"
 category: Design
 tags:
   - Photoshop

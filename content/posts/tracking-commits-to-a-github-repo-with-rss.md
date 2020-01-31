@@ -1,7 +1,7 @@
 ---
 title: "Tracking commits to a GitHub repo with RSS"
 date: 2017-01-16
-slug: "/2017/01/16/tracking-commits-to-a-github-repo-with-rss/"
+slug: "/2017/01/16/tracking-commits-to-a-github-repo-with-rss"
 category: Code
 tags:
   - GitHub

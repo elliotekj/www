@@ -1,7 +1,7 @@
 ---
 title: "Conditionals and regular expressions in Javascript"
 date: 2016-12-19
-slug: "/2016/12/19/conditionals-and-regular-expressions-in-javascript/"
+slug: "/2016/12/19/conditionals-and-regular-expressions-in-javascript"
 category: Code
 tags:
   - Javascript

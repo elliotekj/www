@@ -1,7 +1,7 @@
 ---
 title: "Readership branding WIP"
 date: 2016-08-25
-slug: "/2016/08/25/readership-branding-wip/"
+slug: "/2016/08/25/readership-branding-wip"
 category: Design
 tags:
   - Readership

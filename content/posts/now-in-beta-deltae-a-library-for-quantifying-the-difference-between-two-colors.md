@@ -1,7 +1,7 @@
 ---
 title: "Now in beta: DeltaE – a library for quantifying the difference between two colors"
 date: 2017-05-26
-slug: "/2017/05/26/now-beta-deltae-library-quantifying-difference-two-colors/"
+slug: "/2017/05/26/now-beta-deltae-library-quantifying-difference-two-colors"
 category: Code
 tags:
   - DeltaE

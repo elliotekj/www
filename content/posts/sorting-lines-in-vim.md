@@ -1,7 +1,7 @@
 ---
 title: "Sorting lines in Vim"
 date: 2016-11-14
-slug: "/2016/11/14/sorting-lines-in-vim/"
+slug: "/2016/11/14/sorting-lines-in-vim"
 category: Code
 tags:
   - Vim

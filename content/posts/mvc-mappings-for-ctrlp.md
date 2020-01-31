@@ -1,7 +1,7 @@
 ---
 title: "MVC mappings for CtrlP"
 date: 2017-04-12
-slug: "/2017/04/12/mvc-mappings-for-ctrlp/"
+slug: "/2017/04/12/mvc-mappings-for-ctrlp"
 category: Code
 tags:
   - Vim

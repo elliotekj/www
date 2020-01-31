@@ -1,7 +1,7 @@
 ---
 title: "Designing Apps for the Visually Impaired"
 date: 2014-02-12
-slug: "/2014/02/12/designing-apps-visually-impaired/"
+slug: "/2014/02/12/designing-apps-visually-impaired"
 category: Design
 tags:
   - Accessibility

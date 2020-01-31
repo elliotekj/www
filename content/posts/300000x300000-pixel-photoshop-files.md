@@ -1,7 +1,7 @@
 ---
 title: "300,000×300,000 pixel Photoshop files"
 date: 2014-04-10
-slug: "/2014/04/10/300000x300000-pixel-photoshop-files/"
+slug: "/2014/04/10/300000x300000-pixel-photoshop-files"
 category: Design
 tags:
   - Photoshop

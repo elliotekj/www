@@ -1,7 +1,7 @@
 ---
 title: "A post WWDC link roundup"
 date: 2015-06-09
-slug: "/2015/06/09/a-post-wwdc-link-roundup/"
+slug: "/2015/06/09/a-post-wwdc-link-roundup"
 category: Misc
 tags:
   - Apple

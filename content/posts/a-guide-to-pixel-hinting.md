@@ -1,7 +1,7 @@
 ---
 title: "A Guide to Pixel Hinting"
 date: 2013-10-09
-slug: "/2013/10/09/guide-pixel-hinting/"
+slug: "/2013/10/09/guide-pixel-hinting"
 category: Design
 tags:
   - Photoshop

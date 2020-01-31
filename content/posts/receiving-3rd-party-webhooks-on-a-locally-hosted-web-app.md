@@ -1,7 +1,7 @@
 ---
 title: "Receiving 3rd party webhooks on a locally hosted web app"
 date: 2017-07-18
-slug: "/2017/07/18/receiving-3rd-party-webhooks-locally-hosted-web-app/"
+slug: "/2017/07/18/receiving-3rd-party-webhooks-locally-hosted-web-app"
 category: Code
 tags:
   - Webhooks

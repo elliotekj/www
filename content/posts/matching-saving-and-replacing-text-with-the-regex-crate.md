@@ -1,7 +1,7 @@
 ---
 title: "Matching, saving and replacing text with the regex crate"
 date: 2017-03-10
-slug: "/2017/03/10/matching-saving-and-replacing-text-with-the-regex-crate/"
+slug: "/2017/03/10/matching-saving-and-replacing-text-with-the-regex-crate"
 category: Code
 tags:
   - Rust

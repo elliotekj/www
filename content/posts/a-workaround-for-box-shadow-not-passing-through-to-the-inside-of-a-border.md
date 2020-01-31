@@ -1,7 +1,7 @@
 ---
 title: "A workaround for box-shadow not passing through to the inside of a border"
 date: 2017-04-28
-slug: "/2017/04/28/workaround-box-shadow-not-passing-inside-border/"
+slug: "/2017/04/28/workaround-box-shadow-not-passing-inside-border"
 category: Code
 tags:
   - CSS

@@ -1,7 +1,7 @@
 ---
 title: "Improving webfont performance with FontFaceObserver and sessionStorage"
 date: 2017-01-11
-slug: "/2017/01/11/improving-webfont-performance-with-fontfaceobserver-and-sessionstorage/"
+slug: "/2017/01/11/improving-webfont-performance-with-fontfaceobserver-and-sessionstorage"
 category: Code
 tags:
   - Typography

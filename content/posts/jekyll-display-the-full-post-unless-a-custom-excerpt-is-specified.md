@@ -1,7 +1,7 @@
 ---
 title: "Jekyll: Display the full post unless a custom excerpt is specified"
 date: 2016-12-04
-slug: "/2016/12/04/jekyll-display-the-full-post-unless-a-custom-excerpt-is-specified/"
+slug: "/2016/12/04/jekyll-display-the-full-post-unless-a-custom-excerpt-is-specified"
 category: Code
 tags:
   - Jekyll

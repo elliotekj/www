@@ -1,7 +1,7 @@
 ---
 title: "Collapse folders and styles after running Bjango Actions"
 date: 2015-04-11
-slug: "/2015/04/11/collapse-folders-and-styles-after-running-bjango-actions/"
+slug: "/2015/04/11/collapse-folders-and-styles-after-running-bjango-actions"
 category: Design
 tags:
   - Photoshop

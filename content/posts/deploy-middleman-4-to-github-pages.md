@@ -1,7 +1,7 @@
 ---
 title: "Deploy Middleman 4 to GitHub Pages"
 date: 2016-10-01
-slug: "/2016/10/01/deploy-middleman-4-to-github-pages/"
+slug: "/2016/10/01/deploy-middleman-4-to-github-pages"
 category: Code
 tags:
   - Middleman

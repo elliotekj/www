@@ -1,7 +1,7 @@
 ---
 title: "Handling optional trailing commas in macro_rules!"
 date: 2017-07-03
-slug: "/2017/07/03/handling-optional-trailing-commas-macro_rules/"
+slug: "/2017/07/03/handling-optional-trailing-commas-macro_rules"
 category: Code
 tags:
   - Rust

@@ -1,7 +1,7 @@
 ---
 title: "Greener Grass"
 date: 2016-08-21
-slug: "/2016/08/21/greener-grass/"
+slug: "/2016/08/21/greener-grass"
 category: Misc
 tags:
   - Personal

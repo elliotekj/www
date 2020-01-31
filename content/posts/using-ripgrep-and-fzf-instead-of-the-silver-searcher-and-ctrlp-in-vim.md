@@ -1,7 +1,7 @@
 ---
 title: "Using ripgrep and fzf instead of The Silver Searcher and CtrlP in Vim"
 date: 2016-10-30
-slug: "/2016/10/30/using-ripgrep-and-fzf-instead-of-the-silver-searcher-and-ctrlp-in-vim/"
+slug: "/2016/10/30/using-ripgrep-and-fzf-instead-of-the-silver-searcher-and-ctrlp-in-vim"
 category: Code
 tags:
   - Vim

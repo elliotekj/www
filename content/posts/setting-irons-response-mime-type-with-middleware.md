@@ -1,7 +1,7 @@
 ---
 title: "Setting Iron’s response MIME type with middleware"
 date: 2017-06-29
-slug: "/2017/06/29/setting-irons-response-mime-type-middleware/"
+slug: "/2017/06/29/setting-irons-response-mime-type-middleware"
 category: Code
 tags:
   - Rust

@@ -1,7 +1,7 @@
 ---
 title: "Working with Type in Photoshop"
 date: 2013-11-05
-slug: "/2013/11/05/working-type-photoshop/"
+slug: "/2013/11/05/working-type-photoshop"
 category: Design
 tags:
   - Photoshop

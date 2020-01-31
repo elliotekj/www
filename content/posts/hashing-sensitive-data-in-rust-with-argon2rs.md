@@ -1,7 +1,7 @@
 ---
 title: "Hashing sensitive data in Rust with argon2rs"
 date: 2017-04-02
-slug: "/2017/04/02/hashing-sensitive-data-in-rust-with-argon2rs/"
+slug: "/2017/04/02/hashing-sensitive-data-in-rust-with-argon2rs"
 category: Code
 tags:
   - Rust

@@ -1,7 +1,7 @@
 ---
 title: "How CSS selector specificity is calculated"
 date: 2017-02-25
-slug: "/2017/02/25/how-css-selector-specificity-is-calculated/"
+slug: "/2017/02/25/how-css-selector-specificity-is-calculated"
 category: Code
 tags:
   - CSS

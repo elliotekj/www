@@ -1,7 +1,7 @@
 ---
 title: "Quick Export in Photoshop CC 2015"
 date: 2015-06-19
-slug: "/2015/06/19/quick-export-in-photoshop-cc-2015/"
+slug: "/2015/06/19/quick-export-in-photoshop-cc-2015"
 category: Design
 tags:
   - Photoshop
