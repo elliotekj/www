@@ -72,17 +72,40 @@ type = "spaceship"
 path = "spaceships"
 default_layout = "spaceship.html"
 
-# [8]: path (default: "templates", required: false)
+# [8]: redirects item (required: false)
+#
+# [9]: type (required: true)
+#      Available values:
+#          * "permanent"
+#          * "temporary"
+#
+# [10]: from (required: true)
+#       The slug to be redirected.
+#
+# [11]: to (required: true)
+#       The slug to be redirected to.
+[[redirects]] # [8]
+type = "permanent" # [9]
+from = "/feed.xml" # [10]
+to = "/rss.xml" # [11]
+
+[[redirects]]
+type = "temporary"
+from = "/about-me"
+to = "/about"
+
+# [12]: path (default: "templates", required: false)
 #      The path to the directory that will hold your template files.
 [templates]
-path = "templates" # [8]
+path = "templates" # [12]
 
-# [9]: templates.globals (default: {}, required: false)
+# [13]: templates.globals (default: {}, required: false)
 #      Global key/value pairs that are made available to your template files: {{ globals.base_url }}
-[templates.globals] # [9]
+[templates.globals] # [13]
 base_url = "http://127.0.0.1:8765"
 title = "Elliot Jackson: Freelance software designer and developer"
 desc = "I'm Elliot Jackson; I build software for a living and write about Swift, Rust, and other things."
+something = "cool"
 ```
 
 ## content/
@@ -97,10 +120,11 @@ A page type folder can contain any number of files and sub-directories, the only
 
 Thea assigns the appropriate `Content-Type` header to slugs that have any of the following extensions:
 
+* `.html`
+* `.xml`
 * `.css`
 * `.js`
 * `.json`
-* `.xml`
 * `.txt`
 
 If a slug doesn't have an extension, it'll be assigned a `text/html` `Content-Type` header. Slugs with extensions other than those listed will be assigned a `text/plain` `Content-Type` header.
