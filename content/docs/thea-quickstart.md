@@ -24,7 +24,7 @@ $ cd my_new_site
 
 ## Start Thea
 
-Thea will start on port 8765 by default. The `--dev` flag disables caching and sends the logs to STDOUT.
+Thea will start on port 8765 by default. The `--dev` flag disables caching.
 
 ```shell
 $ thea --dev

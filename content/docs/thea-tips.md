@@ -16,4 +16,14 @@ tail -f -n +0 /path/to/logfile | \
         --date-format='%Y-%m-%d' --time-format=%T --ignore-crawlers -
 ```
 
+## Custom 404 page
+
+To set a custom 404 page, create a page (of any page type) and set the frontmatter slug to "/404" ([example](https://github.com/elliotekj/www/blob/master/content/pages/404.md)).
+
+```yaml
+---
+slug: "/404"
+---
+```
+
 [[Back to docs](/docs/thea)]
