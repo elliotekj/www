@@ -5,7 +5,7 @@ title: About
 
 # About Me
 
-Hi, I'm Elliot Jackson, a half-English half-Canadian software builder based in France. I work independently, taking on iOS design and/or development projects and back-end contract work. I have a heavy preference towards strongly statically typed languages, specifically Swift and Rust, as my [open source projects](/opensource) demonstrate.
+Hi, I'm Elliot Jackson, a half-English half-Canadian software builder based in France. I work independently, taking on iOS design and/or development projects and server-side contract work. I have a heavy preference towards strongly statically typed languages, specifically Swift and Rust, as my [open source projects](/opensource) demonstrate.
 
 Away from the computer, I play in the back row for my local rugby team, enjoy powerlifting, and spend an inordinate amount of time looking for the tennis balls my Springer Spaniels lose.
 
