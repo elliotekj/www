@@ -21,8 +21,10 @@ As you can probably tell, this has always been a place for me to experiment with
 
 * Server: [Thea](/docs/thea)
 * Reverse proxy: Nginx
-* DNS: [dns.he.net](https://dns.he.net/)
+* DNS: [dns.he.net](https://dns.he.net)
+* Hosting: [Scaleway](https://www.scaleway.com)
+* Monitoring: [UptimeRobot](https://uptimerobot.com)
 * Publishing: A bare git repo on the server with a post-receive hook
-* Hosting: [Scaleway](https://www.scaleway.com/)
+* Analytics: Server logs via [GoAccess](https://goaccess.io)
 
 Barring a couple of posts that were originally written for the Realmac blog, elliotekj.com has always been written in my spare time. While my writing is my own, any and all code in my posts is in the [public domain](https://unlicense.org/).
